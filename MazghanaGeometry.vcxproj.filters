@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="allTests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="testPoint.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BSpline.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="splineFunctions.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="tensor.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="tensor_utest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="point.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="BSpline.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="testBSpline.cpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="splineFunctions.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="testSplineFunction.cpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tensor.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sources">
+      <UniqueIdentifier>{3c060a7a-02da-4b46-a564-a6f9f95c44eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{271c249e-12bb-4d96-95cb-6055894c194f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{fc118fdc-84e2-429b-a864-7318e1ab485e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
