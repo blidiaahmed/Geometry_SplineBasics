@@ -3,13 +3,13 @@
 #include "BSpline.h"
 #include "tensor.h"
 
-
+template <int i>
 class spline
 {
 	BSpline BS;
-	tensor /*<BS.dimension>*/ Tensor;
+	//tensor <i> Tensor;
 public:
-	spline(tensor Tensr); 
+	spline(RecursiveVector Tensr); 
 
 	unsigned __int8 get_dimension();
 
