@@ -6,7 +6,7 @@ class BSpline
 	
 
 public:
-	unsigned int dimension;
+	unsigned int ParametricDimension;
 	vector<unsigned int> degree;
 	vector<vector<float>> knot;
 	vector<unsigned int> controlGridShape;
@@ -17,6 +17,8 @@ public:
 		unsigned int dim, vector<unsigned int>& deg);
 	//contructors
 
+	BSpline();
+	BSpline(unsigned __int8 dim);
 	BSpline(unsigned int dim, vector<unsigned int>& deg);
 	BSpline(unsigned int dim, vector<unsigned int>& deg,vector<vector<float>> knts);
 	//getters

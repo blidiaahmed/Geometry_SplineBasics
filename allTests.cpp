@@ -1,6 +1,7 @@
 #include "pch.h"
-#include "tensor.h"
+
 #include "testBSpline.cpp"
+#include "testSplineFunction.cpp"
 //#include "testPoint.cpp"
 
 void main(int argc, char* argv[])

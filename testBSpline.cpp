@@ -6,12 +6,23 @@ TEST(BSpline, constructorsDimension1)
 	unsigned int dimension=1;
 	vector <unsigned int > degree(dimension);
 	degree[0] = 3;
-	
-	BSpline BS1(dimension, degree);
-	
+
+	BSpline BS{};
+	EXPECT_EQ(BS.getDimension(), 1);
+	EXPECT_EQ(BS.getDegree()[0], 3);
 	//the default knots distribution correspond to bezier polynomials
 	//eg. degree=3 means knots={0,0,0,0,1,1,1,1}
+	EXPECT_EQ(BS.getKnots(0)[0], 0.);
+	EXPECT_EQ(BS.getKnots(0)[4], 1.);
 
+
+	BSpline BS0(dimension);
+	EXPECT_EQ(BS0.getDimension(), 1);
+	EXPECT_EQ(BS0.getDegree()[0], 3);
+	EXPECT_EQ(BS0.getKnots(0)[0], 0.);
+	EXPECT_EQ(BS0.getKnots(0)[4], 1.);
+
+	BSpline BS1(dimension, degree);
 	EXPECT_EQ(BS1.getDimension(), 1);
 	EXPECT_EQ(BS1.getDegree()[0], 3);
 	EXPECT_EQ(BS1.getKnots(0)[0],0.);

@@ -1,17 +1,21 @@
 #include "pch.h"
 #include "point.h"
 #include "BSpline.h"
-#include "tensor.h"
+
 
 
 class spline
 {
-	BSpline BS;
-	tensor /*<BS.dimension>*/ Tensor;
 public:
-	spline(tensor Tensr); 
+	BSpline BS;
 
-	unsigned __int8 get_dimension();
+	vector<float> tensor1;
+	vector<vector<float>> tensor2;
+	vector<vector<vector<float>>> tensor3;
 
-	
+	unsigned __int8 AmbiantDimension = 1;
+
+	unsigned __int8 getAmbiantDimension();
+	spline():BS(), tensor1() {}
+	spline(unsigned __int8 dim) :AmbiantDimension(dim),BS(), tensor1() {}
 };

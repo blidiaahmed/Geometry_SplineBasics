@@ -1,0 +1,8 @@
+**.config
+**.log
+**.lib
+**.db
+**.ipch
+**.db-shm
+.vs/**
+**.hpp

@@ -17,12 +17,6 @@
     <ClCompile Include="splineFunctions.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="tensor.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="tensor_utest.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -40,9 +34,6 @@
     </ClInclude>
     <ClInclude Include="testSplineFunction.cpp">
       <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="tensor.h">
-      <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
