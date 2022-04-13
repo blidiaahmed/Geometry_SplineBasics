@@ -1,0 +1,3 @@
+This part of the project was inspired from this repo:
+https://github.com/VictorGordan/opengl-tutorials
+Great thanks to its owner.
