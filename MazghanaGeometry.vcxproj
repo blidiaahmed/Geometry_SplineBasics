@@ -36,7 +36,6 @@
     <ClInclude Include="BSpline.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="point.h" />
-    <ClInclude Include="tensor.h" />
     <ClInclude Include="testSplineFunction.cpp" />
     <ClInclude Include="splineFunctions.h" />
     <ClInclude Include="testBSpline.cpp" />
@@ -51,9 +50,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="point.cpp" />
-    <ClCompile Include="tensor.cpp" />
     <ClCompile Include="splineFunctions.cpp" />
-    <ClCompile Include="tensor_utest.cpp" />
     <ClCompile Include="testPoint.cpp" />
   </ItemGroup>
   <ItemGroup>

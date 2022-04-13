@@ -1,7 +1,24 @@
 #include "pch.h"
 #include "BSpline.h"
+BSpline::BSpline():ParametricDimension(1)
+{
+	
+	degree= vector<unsigned int>(ParametricDimension);
+	degree[0] = 3;
+	vector<vector<float>> knts = multivariatePolynomialKnotDistribution(ParametricDimension, degree);
+	knot = knts;
+	computeControlGridShape();
+}
+BSpline::BSpline(unsigned __int8 dim):ParametricDimension(dim)
+{
+	degree = vector<unsigned int>(ParametricDimension);
+	degree[0] = 3;
+	vector<vector<float>> knts = multivariatePolynomialKnotDistribution(ParametricDimension, degree);
+	knot = knts;
+	computeControlGridShape();
+}
 BSpline::BSpline(unsigned int dim, vector<unsigned int>& deg)
-:dimension(dim), degree(deg)
+:ParametricDimension(dim), degree(deg)
 {
 	vector<vector<float>> knts = multivariatePolynomialKnotDistribution(dim,deg);
 	knot = knts;
@@ -9,18 +26,18 @@ BSpline::BSpline(unsigned int dim, vector<unsigned int>& deg)
 }
 BSpline::BSpline(unsigned int dim, vector<unsigned int>& deg,
 	vector<vector<float>> knts)
-	:dimension(dim), degree(deg), knot(knts) {computeControlGridShape();}
+	:ParametricDimension(dim), degree(deg), knot(knts) {computeControlGridShape();}
 vector<float> BSpline::getKnots(unsigned int axIndex){return knot[axIndex];}
-unsigned int BSpline::getDimension(){return dimension;}
+unsigned int BSpline::getDimension(){return ParametricDimension;}
 vector <unsigned int > BSpline::getDegree() { return degree; }
 vector<unsigned int> BSpline::getControlGridShape() { return controlGridShape; }
-void BSpline::setDimension(unsigned int dim) { dimension = dim; }
+void BSpline::setDimension(unsigned int dim) { ParametricDimension = dim; }
 void BSpline::computeControlGridShape() 
 {
-	controlGridShape = vector<unsigned int >(dimension);
-	for (int i = 0; i < dimension;i++)
+	controlGridShape = vector<unsigned int >(ParametricDimension);
+	for (int index = 0; index < ParametricDimension;index++)
 	{
-		controlGridShape[i] = -degree[i] -1 + knot[i].size();
+		controlGridShape[index] = -degree[index] -1 + knot[index].size();
 	}
 }
 vector<vector<float>> BSpline::multivariatePolynomialKnotDistribution(
