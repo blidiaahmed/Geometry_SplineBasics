@@ -8,7 +8,7 @@ class BSpline
 public:
 	unsigned int ParametricDimension;
 	vector<unsigned int> degree;
-	vector<vector<float>> knot;
+	vector<vector<float>> knot;// a knot serie for each dim
 	vector<unsigned int> controlGridShape;
 
 	void computeControlGridShape();
