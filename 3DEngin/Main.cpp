@@ -69,12 +69,7 @@ int main()
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 
-	/*
-	* I'm doing this relative path thing in order to centralize all the resources into one folder and not
-	* duplicate them between tutorial folders. You can just copy paste the resources from the 'Resources'
-	* folder and then give a relative path from this folder to whatever resource you want to get to.
-	* Also note that this requires C++17, so go to Project Properties, C/C++, Language, and select C++17
-	*/
+	
 	std::string parentDir = (fs::current_path().fs::path::parent_path()).string();
 	std::string modelPath = "/3DEngin/models/bunny/scene.gltf";
 	
@@ -87,8 +82,6 @@ int main()
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
 	{
-
-	
 		// Specify the color of the background
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		// Clean the back buffer and depth buffer
