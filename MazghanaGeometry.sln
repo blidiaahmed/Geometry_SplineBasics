@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazghanaGeometry", "MazghanaGeometry.vcxproj", "{AFEBFF6A-BE32-419A-AE11-2211FFD368DD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3DEngin", "3DEngin\YoutubeOpenGL.vcxproj", "{D94349FD-5460-401F-9D7A-1CEDAAC766A5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{AFEBFF6A-BE32-419A-AE11-2211FFD368DD}.Release|x64.Build.0 = Release|x64
 		{AFEBFF6A-BE32-419A-AE11-2211FFD368DD}.Release|x86.ActiveCfg = Release|Win32
 		{AFEBFF6A-BE32-419A-AE11-2211FFD368DD}.Release|x86.Build.0 = Release|Win32
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Debug|x64.ActiveCfg = Debug|x64
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Debug|x64.Build.0 = Debug|x64
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Debug|x86.ActiveCfg = Debug|Win32
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Debug|x86.Build.0 = Debug|Win32
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Release|x64.ActiveCfg = Release|x64
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Release|x64.Build.0 = Release|x64
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Release|x86.ActiveCfg = Release|Win32
-		{D94349FD-5460-401F-9D7A-1CEDAAC766A5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
