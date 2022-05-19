@@ -4,13 +4,22 @@
 using namespace std;
 // constructors
 point::point() :point(1){}
+
 point::point(int dim):dimension(dim),X(dim){}
 point::point(vector<float>& x):X(x),dimension(x.size()) {}
+point::point(vector<float>&& x) : X(x), dimension(x.size()) {}
 // getters
 unsigned int point::getDimension() { return dimension; }
 float		 point::getCoordinate(unsigned int i) { return X[i]; }
 vector<float>&  point::getVector() { return X; }
+float point::getNorm() { float L = 0;
+for (int i=0; i<dimension;i++)
+{
+	L+=X[i]*X[i];
+}
+return sqrt(L);
 
+}
 //  setters 
 void point::setCoordinate(unsigned int index, float fl){X[index] = fl;}
 

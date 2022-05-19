@@ -11,11 +11,13 @@ public:
 	point();
 	point(int dim);
 	point(vector<float>& x);
+	
+	point(vector<float>&& x);
 	unsigned int getDimension();
 	float getCoordinate(unsigned int);
 	vector<float>& getVector();
 	void setCoordinate(unsigned int, float);
-
+	float getNorm();
 	point operator -() ;
 };
 point operator * (float fl, point& pt);
