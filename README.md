@@ -1,2 +1,2 @@
-# MazganaGeometry
+# Geometry_SplineBasics
 BSpline computations
