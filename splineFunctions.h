@@ -9,8 +9,9 @@ class spline
 public:
 	BSpline BS;
 
-	
+
 	vector<point> tensor1;
+	vector<vector<point>> tensor2;
 
 	unsigned __int8 AmbiantDimension = 1;
 
@@ -26,6 +27,7 @@ public:
 	
 	//evaluation function
 	point Evaluate(float x);
+	point Evaluate(vector<float> x);
 
 	
 };
