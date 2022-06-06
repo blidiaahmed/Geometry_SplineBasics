@@ -23,6 +23,9 @@
     <ClCompile Include="TestMaths.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="TestWriteOBJ.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -42,6 +45,12 @@
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="Maths.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="WriteObj.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJMesh.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

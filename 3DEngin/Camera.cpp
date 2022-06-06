@@ -72,14 +72,10 @@ void Camera::Inputs(GLFWwindow* window)
 	// camera movement mode
 	if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
 	{
-	
-		
-		
 		if (clickCounter == 0) {
 		//switch ifGameMode game mode
 		if (isOn_GameMode) {
 			isOn_GameMode = 0;
-			
 			// show the  mouse cursor
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		}

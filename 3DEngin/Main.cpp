@@ -5,6 +5,8 @@ namespace fs = std::filesystem;
 
 #include"Model.h"
 
+#include <iostream>
+
 
 const unsigned int width = 800;
 const unsigned int height = 800;

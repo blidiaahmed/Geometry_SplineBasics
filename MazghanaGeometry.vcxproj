@@ -35,11 +35,13 @@
   <ItemGroup>
     <ClInclude Include="BSpline.h" />
     <ClInclude Include="Maths.h" />
+    <ClInclude Include="OBJMesh.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="testSplineFunction.cpp" />
     <ClInclude Include="splineFunctions.h" />
     <ClInclude Include="testBSpline.cpp" />
+    <ClInclude Include="WriteObj.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allTests.cpp" />
@@ -55,6 +57,7 @@
     <ClCompile Include="splineFunctions.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="testPoint.cpp" />
+    <ClCompile Include="TestWriteOBJ.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

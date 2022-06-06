@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-TEST(splineFunction, SplineObject3D)
+TEST(splineFunction, SplineCurve3D)
 {
 	spline sp(3);
 	sp.tensor1.push_back(point({ 1,1,1 }));
@@ -16,6 +16,24 @@ TEST(splineFunction, SplineObject3D)
 	sp.tensor1.push_back(point({ 0,1,1 }));
 	point pt (sp.Evaluate(0.5));
 	ASSERT_NEAR(pt.getNorm(), 1.2, 0.01)<< "\n >> this have to be confirmed, I am not sure about his answer";
+
+
+}
+
+
+TEST(splineFunction, SplineSurface3D)
+{
+	spline sp(3);
+	sp.BS= BSpline(2);
+	sp.tensor2 = vector<vector<point>> 
+	{
+		vector<point>{point({ 0,0,1 }), point({ 1,0,1 }), point({ 2,0,1 }), point({ 3,0,1 }) },
+			vector<point>{point({ 0,1,1 }), point({ 1,1,1 }), point({ 2,1,1 }) , point({ 3,1,1 }) },
+			vector<point>{point({ 0,2,1 }), point({ 1,2,1 }), point({ 2,2,1 }), point({ 3,2,1 })},
+	vector<point>{point({ 0,3,1}), point({1,3,1}), point({2,3,1}), point({3,3,1})}
+	};
+	point pt(sp.Evaluate({ 0,0}));
+	ASSERT_NEAR(pt.getNorm(), 1., 0.01) << "\n >> this have to be confirmed, I am not sure about his answer";
 
 
 }
