@@ -34,6 +34,10 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="BSpline.h" />
+    <ClInclude Include="MeshConvert.h" />
+    <ClInclude Include="TestConvert.cpp" />
+    <ClInclude Include="HalfeEdge.h" />
+    <ClInclude Include="ReadObj.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="OBJMesh.h" />
     <ClInclude Include="pch.h" />
@@ -55,7 +59,9 @@
     </ClCompile>
     <ClCompile Include="point.cpp" />
     <ClCompile Include="splineFunctions.cpp" />
+    <ClCompile Include="TestHalfEdge.cpp" />
     <ClCompile Include="TestMaths.cpp" />
+    <ClCompile Include="TestObjRead.cpp" />
     <ClCompile Include="testPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
   </ItemGroup>

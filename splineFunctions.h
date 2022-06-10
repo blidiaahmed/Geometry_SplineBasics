@@ -1,4 +1,6 @@
+#pragma once 
 #include "pch.h"
+#include"OBJMesh.h"
 #include "point.h"
 #include "BSpline.h"
 #include <vector>
@@ -29,7 +31,9 @@ public:
 	point Evaluate(float x);
 	point Evaluate(vector<float> x);
 
-	
+	//produce mesh
+	OBJMesh ProduceOBJMesh();
+	OBJMesh ProduceOBJMesh(int precision);
 };
 
 

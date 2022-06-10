@@ -26,6 +26,12 @@
     <ClCompile Include="TestWriteOBJ.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="TestHalfEdge.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestObjRead.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -51,6 +57,18 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="OBJMesh.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="HalfeEdge.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadObj.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TestConvert.cpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshConvert.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
