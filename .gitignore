@@ -95,12 +95,7 @@
 /packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/*.lib
 /packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/*.pdb
 /3DEngin/x64/Debug/*.obj
-/3DEngin/*.cpp
-/3DEngin/*.vcxproj
 /3DEngin/x64/Debug/*.txt
-/*.h
-/*.sln
-/*.cpp
 /.vs/MazghanaGeometry/v16/*.db-shm
 /.vs/MazghanaGeometry/v16/*.db-wal
 /.vs/MazghanaGeometry/v16/*.opendb
