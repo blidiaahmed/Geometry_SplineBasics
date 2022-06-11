@@ -2,6 +2,7 @@
 
 #include "testBSpline.cpp"
 #include "testSplineFunction.cpp"
+#include"testConvert.cpp"
 //#include "testPoint.cpp"
 
 void main(int argc, char* argv[])

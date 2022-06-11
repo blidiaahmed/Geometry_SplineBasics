@@ -1,7 +1,4 @@
-#ifndef POINT_H
-#define POINT_H
-
-#include"pch.h"
+#pragma once
 using namespace std;
 class point
 {
@@ -25,4 +22,3 @@ point operator * (float fl, point& pt);
 point operator * (point& pt, float fl);
 point operator + (point& pt1, point& pt2);
 point operator -(point& pt1, point& pt2);
-#endif //POINT_H

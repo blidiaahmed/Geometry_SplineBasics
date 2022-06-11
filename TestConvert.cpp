@@ -1,6 +1,6 @@
 #include"pch.h"
 #include "MeshConvert.h"
-
+#include"ReadObj.h"
 
 TEST(MeshConvert, objToHEdgeMesh)
 {

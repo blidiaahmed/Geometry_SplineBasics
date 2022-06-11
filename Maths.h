@@ -1,5 +1,5 @@
-#pragma once
 #include <vector>
+#pragma once
 #include "point.h"
 using namespace std;
 int SelectIntervalIndex(float x, vector<float> t);

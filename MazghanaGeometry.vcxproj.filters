@@ -32,6 +32,18 @@
     <ClCompile Include="TestObjRead.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="MeshConvert.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadObj.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="HalfeEdge.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteObj.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

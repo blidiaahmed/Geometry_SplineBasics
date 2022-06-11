@@ -1,9 +1,9 @@
+#include <vector>
 #pragma once 
 #include "pch.h"
 #include"OBJMesh.h"
 #include "point.h"
 #include "BSpline.h"
-#include <vector>
 #include"Maths.h"
 using namespace std;
 class spline
