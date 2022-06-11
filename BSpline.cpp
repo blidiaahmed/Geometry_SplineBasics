@@ -12,7 +12,11 @@ BSpline::BSpline():ParametricDimension(1)
 BSpline::BSpline(unsigned __int8 dim):ParametricDimension(dim)
 {
 	degree = vector<unsigned int>(ParametricDimension);
-	degree[0] = 3;
+	for (int i = 0; i < ParametricDimension;i++)
+	{
+		degree[i] = 3;
+	}
+	
 	vector<vector<float>> knts = multivariatePolynomialKnotDistribution(ParametricDimension, degree);
 	knot = knts;
 	computeControlGridShape();

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "splineFunctions.h"
-
+#include <iostream>
 
 
 unsigned __int8 spline::getAmbiantDimension()
@@ -48,4 +48,38 @@ point spline::Evaluate(vector<float> x)
 	return pt;
 
 	
+}
+
+OBJMesh spline::ProduceOBJMesh()
+{
+	unsigned int precision = 5;
+	return ProduceOBJMesh(precision);
+}
+
+OBJMesh spline::ProduceOBJMesh(int precision)
+{
+	OBJMesh Om;
+	for (int i = 0; i <= precision;i++) {
+		for (int j = 0; j<= precision;j++) {
+			point pt = Evaluate({ (float)i / precision,(float)j / precision });
+			Om.points.push_back(pt);
+		}
+	}
+
+	for (int i = 0; i < precision
+		;i++) {
+		for (int j = 0; j < precision
+			;j++) {
+			vector<int> face{ (i )+1+ (j  )* (precision + 1),
+				i+1+1  + (j ) * (precision + 1), 
+				i+1  + (j+1 ) * (precision + 1) };
+			
+			Om.faces.push_back(face);
+			face=vector<int>({ i + 1 + (j + 1) * (precision + 1) ,
+				i + 1 + 1 + (j) * (precision + 1),i + 1 + 1 + (j+1) * (precision + 1) });
+			Om.faces.push_back(face);
+
+		}
+	}
+	return Om;
 }

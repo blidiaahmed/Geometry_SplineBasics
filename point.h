@@ -5,9 +5,10 @@
 using namespace std;
 class point
 {
+
+public:
 	unsigned int dimension;
 	vector<float> X;
-public:
 	point();
 	point(int dim);
 	point(vector<float>& x);
