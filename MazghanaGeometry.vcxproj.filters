@@ -5,7 +5,7 @@
     <ClCompile Include="allTests.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="testPoint.cpp">
+    <ClCompile Include="TestPoint.cpp">
       <Filter>tests</Filter>
     </ClCompile>
     <ClCompile Include="point.cpp">
@@ -53,13 +53,13 @@
     <ClInclude Include="BSpline.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="testBSpline.cpp">
+    <ClInclude Include="TestBSpline.cpp">
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="splineFunctions.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="testSplineFunction.cpp">
+    <ClInclude Include="TestSplineFunction.cpp">
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="Maths.h">

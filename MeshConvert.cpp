@@ -4,10 +4,9 @@
 
 
 
-HEdgeMesh ConvertObj2HEdge(OBJMesh Om)
+HalfeEdgeMesh ConvertObjToHEdge(OBJMesh Om)
 {
-	HEdgeMesh HEM;
-
+	HalfeEdgeMesh HEM;
 
 	// copy points
 	CopyPoints(Om, HEM);
@@ -16,45 +15,56 @@ HEdgeMesh ConvertObj2HEdge(OBJMesh Om)
 	{
 		HEM.faces.push_back(Face());
 		Face& CurrentFace = HEM.faces[HEM.faces.size() - 1];
-		CurrentFace.EdgeNumber = HEM.faces.size();
-		for (int index = 0;index < fc.size();index++)
+		CurrentFace.EdgesNumber = fc.size();
+		for (int index = 0;index < CurrentFace.EdgesNumber;index++)
 		{
-			HEdge he;
-			he.vertex = fc[index];
+			HEM.HalfeEdges.push_back(HEdge());
+			HEdge& CurrentHalfEdge = HEM.HalfeEdges.back();
+			CurrentHalfEdge.vertex = fc[index];
 
 
-			//compute the edge
+			//compute the edge corresponding to he
 			int  nextIndex = (index < fc.size() - 1) ? index + 1 : 0;
-			set<int> EdgeVerticesSet = { fc[index],fc[nextIndex] };
+			set<int> CurrentEdge_VerticesSet = { fc[index],fc[nextIndex] };
 
-			//
-			he.Edge = EdgeVerticesSet;
+			//specify the edge in he
+			CurrentHalfEdge.Edge = CurrentEdge_VerticesSet;
 
 			//find the edge
-			set<set<int>>::iterator it = HEM.SetEdges.find(EdgeVerticesSet);
+			set<set<int>>::iterator it = HEM.SetEdges.find(CurrentEdge_VerticesSet);
 
 			if (it == HEM.SetEdges.end())
 			{
-				HEM.SetEdges.insert(EdgeVerticesSet);
-				HEM.edges[EdgeVerticesSet] = edge();
-				HEM.edges[EdgeVerticesSet].HEdge = HEM.hedges.size() + 1;
+				HEM.SetEdges.insert(CurrentEdge_VerticesSet);
+				HEM.edges[CurrentEdge_VerticesSet] = edge();
+				HEM.edges[CurrentEdge_VerticesSet].HEdge = HEM.HalfeEdges.size();
 				//in this case the twin is not known yet (and may not exist if boundary edge)
 			}
 			else
 			{
 				// in this case the twin is known and need to be linked to the current hedge
-				he.twin = HEM.edges[EdgeVerticesSet].HEdge;
-				HEM.hedges[HEM.edges[EdgeVerticesSet].HEdge - 1].twin = HEM.hedges.size();
+				CurrentHalfEdge.twin = HEM.edges[CurrentEdge_VerticesSet].HEdge;
+				HEM.HalfeEdges[HEM.edges[CurrentEdge_VerticesSet].HEdge - 1].twin = HEM.HalfeEdges.size();
 			}
 			//next half edge
-			he.next = HEM.hedges.size() + 2;
+			if (index < CurrentFace.EdgesNumber -1)
+			{
+				CurrentHalfEdge.next = HEM.HalfeEdges.size() + 1;
+			}
+			else
+			{
+				CurrentHalfEdge.next = HEM.HalfeEdges.size()- CurrentFace.EdgesNumber+1;
+			}
+			// specify the face
+			CurrentHalfEdge.face = HEM.faces.size();
 
-			// put the halfe edge in the hEmeshdata structure
-			HEM.hedges.push_back(move(he));
-			HEM.vertices[fc[index] - 1].HalfEdge = HEM.hedges.size() + 1;
+
+			// associate to the current vertex  the current halfe edge
+			HEM.vertices[fc[index] - 1].HalfEdge = HEM.HalfeEdges.size();
+
 			if (index == 0)
 			{
-				CurrentFace.HEdge = HEM.hedges.size() + 1;
+				CurrentFace.HEdge = HEM.HalfeEdges.size() ;
 			}
 		}
 	}
@@ -63,7 +73,7 @@ HEdgeMesh ConvertObj2HEdge(OBJMesh Om)
 }
 
 
-void CopyPoints(OBJMesh& Om, HEdgeMesh& HEM)
+void CopyPoints(OBJMesh& Om, HalfeEdgeMesh& HEM)
 {
 	for (point pt : Om.points)
 	{

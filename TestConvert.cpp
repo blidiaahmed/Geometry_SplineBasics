@@ -4,7 +4,9 @@
 
 TEST(MeshConvert, objToHEdgeMesh)
 {
-	HEdgeMesh hem;
+
+	
+	HalfeEdgeMesh hem;
 
 	OBJMesh Om = ReadObj("models/SimpleTest.obj");
 	EXPECT_EQ(Om.faces.size(), 3);

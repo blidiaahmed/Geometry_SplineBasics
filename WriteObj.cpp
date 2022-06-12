@@ -12,7 +12,7 @@ void WriteOBJ(std::string str, OBJMesh Om)
 		myfile << pt.getCoordinate(0) << " ";
 		myfile << pt.getCoordinate(1) << " ";
 		myfile << pt.getCoordinate(2) << endl;
-		if (dim > 3) {
+		if (dim == 6) {
 			myfile << "vn ";
 			myfile << pt.getCoordinate(3) << " ";
 			myfile << pt.getCoordinate(4) << " ";

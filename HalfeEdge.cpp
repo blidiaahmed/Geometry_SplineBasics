@@ -1,18 +1,24 @@
 #include"pch.h"
+#include"MeshConvert.h"
 #include"HalfeEdge.h"
 
 
 
 
-point HEdgeMesh::EvaluateHEMesh(vector<float> x, int hedgeIndex)
+HalfeEdgeMesh::HalfeEdgeMesh(OBJMesh Om)
+{
+	*this= ConvertObjToHEdge(Om);
+}
+
+point HalfeEdgeMesh::EvaluateHEMesh(vector<float> x, int hedgeIndex)
 {
 
-	HEdge* CurrentHalfeEdge = &hedges[hedgeIndex];
-	Face* currentFace = &faces[CurrentHalfeEdge->face];
+	HEdge* CurrentHalfeEdge = &HalfeEdges[hedgeIndex-1];
+	Face* currentFace = &faces[CurrentHalfeEdge->face-1];
 
 
-	point refPoint = vertices[CurrentHalfeEdge->vertex].Point;
-	point NextPoint = vertices[hedges[hedges[hedgeIndex].next].vertex].Point;
+	point refPoint = vertices[CurrentHalfeEdge->vertex-1].Point;
+	point NextPoint = vertices[HalfeEdges[HalfeEdges[hedgeIndex-1].next-1].vertex-1].Point;
 	point XAxis = NextPoint - refPoint;
 	HEdge* PreviousHalfeEdge = Privious_edge_finder(CurrentHalfeEdge, currentFace);
 	point PreviousPoint = vertices[PreviousHalfeEdge->vertex].Point;
@@ -23,14 +29,14 @@ point HEdgeMesh::EvaluateHEMesh(vector<float> x, int hedgeIndex)
 	return pt;
 }
 
-HEdge* HEdgeMesh::Privious_edge_finder(HEdge* CurrentHalfeEdge, Face* currentFace)
+HEdge* HalfeEdgeMesh::Privious_edge_finder(HEdge* CurrentHalfeEdge, Face* currentFace)
 {
 
-	int CurrentFaceEdgeNumber = currentFace->EdgeNumber;
+	int CurrentFaceEdgeNumber = currentFace->EdgesNumber;
 	HEdge* Hedge_Cursor = CurrentHalfeEdge;
 	for (int counter = 1; counter < CurrentFaceEdgeNumber - 1;counter++)
 	{
-		Hedge_Cursor = &hedges[Hedge_Cursor->next];
+		Hedge_Cursor = &HalfeEdges[Hedge_Cursor->next-1];
 	}
 	return Hedge_Cursor;
 

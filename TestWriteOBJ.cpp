@@ -1,12 +1,11 @@
 #include"pch.h"
 #include <string>
-#include "png/CImg.h"
+
 #include"WriteObj.h"
 #include"OBJMesh.h"
 #include"splineFunctions.h"
 using namespace std;
-using namespace cimg_library;
-void PngToPointCloud(string str, OBJMesh& Om);
+
 TEST(WriteOBJ, OneTriangle)
 {
 	
@@ -47,40 +46,3 @@ TEST(WriteOBJ, SplineSurface)
 	//system("meshlab objfile.obj");
 }
 
-
-TEST(HalfEdge, AltitudeExample)
-{
-	
-
-	OBJMesh Om;
-	//prepare the image
-	string str = "models/CarteAltitude.bmp";
-	PngToPointCloud(str,Om);
-
-	WriteOBJ("models/test.obj", Om);
-	//system("meshlab models/test.obj");
-}
-
-
-void PngToPointCloud(string str, OBJMesh& Om)
-{
-	
-	char  c[50];
-	strcpy(c, str.c_str());
-	CImg<float> image(c);
-	CImgDisplay main_disp(image);
-
-	//LOOP OVER THE PIXELS
-	int h = image.height();
-	int w = image.width();
-	for (int i = 0;i < w;i++)
-		for (int j = 0;j < h;j++)
-		{
-			float pixvalR = image(i, j, 0, 0); // read red val at coord 10,10
-			float pixvalG = image(i, j, 0, 1); // read green val at coord 10,10
-			float pixvalB = image(i, j, 0, 2); // read blue val at coord 10,10
-			 //cout << pixvalR << " " << pixvalG << " " << pixvalB << endl;
-			Om.points.push_back(point({ (float)i * 5,(float)j * 5,-pixvalR - pixvalG //+ (pixvalB-300)
-				}));
-		}
-}
