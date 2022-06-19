@@ -1,13 +1,15 @@
+#include <iostream>
+
 #pragma once
 
 #include"point.h"
-#include <iostream>
+#include "OBJMesh.h"
 using namespace std;
 
 class Vertex
 {
 public:
-	int HalfEdge;
+	int HalfEdge = -1;
 	//additional
 	
 	point Point;
@@ -16,16 +18,12 @@ public:
 class HEdge
 {
 public:
-	int twin;// null if boundary edge
-	int next;
-	int vertex;
-	int face;
+	int twin = -1;// null if boundary edge
+	int next = -1;
+	int vertex = -1;
+	int face = -1;
 	set<int> Edge; 
 	HEdge() {
-		twin = 0;
-		next=0;
-		vertex=0;
-		face=0;
 		Edge = {};
 	}
 
@@ -43,22 +41,24 @@ public:
 class Face
 {
 public:
-	int HEdge;
-	int EdgeNumber;
+	int HEdge=-1;
+	int EdgesNumber = -1;
 };
 
-class HEdgeMesh
+class HalfeEdgeMesh
 {
 public:
 	vector<Vertex> vertices;
-	vector<HEdge> hedges;
+	vector<HEdge> HalfeEdges;
 	vector<Face> faces;
 	//vector<edge> edges;
 	map<set<int>,edge> edges;
 	set<set<int>> SetEdges;//two coordinates for vertex index, and the last gives the edge index
-
+	//constructor
+	HalfeEdgeMesh() = default;
+	HalfeEdgeMesh(OBJMesh Om);
 	
 	point EvaluateHEMesh(vector<float> x, int hedgeIndex);
-	HEdge* HEdgeMesh::Privious_edge_finder(HEdge* CurrentHalfeEdge, Face* currentFace);
+	HEdge* HalfeEdgeMesh::Privious_edge_finder(HEdge* CurrentHalfeEdge, Face* currentFace);
 };
 

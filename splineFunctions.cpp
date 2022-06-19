@@ -18,21 +18,16 @@ point spline::Evaluate(float x)
 		for (int i = 0;i < AmbiantDimension;i++)
 		{
 			vector<float > controlCoefficients;
-			
 			for (unsigned int j = 0;j < controlPointsNumber;j++)
 			{
 				controlCoefficients.push_back(tensor1[j].getCoordinate(i));
 			}
-			
 			OutputCoordiantes.push_back(evaluateSpline(x, BS.knot[0], BS.knot[0].size(), controlCoefficients, BS.degree[0], BS.degree[0]));
 		}
 		point pt(OutputCoordiantes);
 		return pt;
 		
 }
-
-
-
 point spline::Evaluate(vector<float> x)
 {
 	vector<int > m;

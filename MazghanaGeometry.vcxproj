@@ -42,9 +42,9 @@
     <ClInclude Include="OBJMesh.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="point.h" />
-    <ClInclude Include="testSplineFunction.cpp" />
+    <ClInclude Include="TestSplineFunction.cpp" />
     <ClInclude Include="splineFunctions.h" />
-    <ClInclude Include="testBSpline.cpp" />
+    <ClInclude Include="TestBSpline.cpp" />
     <ClInclude Include="WriteObj.h" />
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +65,7 @@
     <ClCompile Include="TestHalfEdge.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="TestObjRead.cpp" />
-    <ClCompile Include="testPoint.cpp" />
+    <ClCompile Include="TestPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
     <ClCompile Include="WriteObj.cpp" />
   </ItemGroup>

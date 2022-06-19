@@ -15,7 +15,7 @@ TEST(splineFunction, SplineCurve3D)
 
 	sp.tensor1.push_back(point({ 0,1,1 }));
 	point pt (sp.Evaluate(0.5));
-	//ASSERT_NEAR(pt.getNorm(), 1.2, 0.01)<< "\n >> this have to be confirmed, I am not sure about his answer";
+	EXPECT_NEAR(pt.getNorm(), 1.2437, 0.01);
 
 
 }
@@ -35,8 +35,9 @@ TEST(splineFunction, SplineSurface3D)
 	point pt(sp.Evaluate({ 0,0}));
 	point pt1(sp.Evaluate({ 0.5,0.5 }));
 	point pt2(sp.Evaluate({ 0.75,0.25 }));
-	ASSERT_NEAR(pt.getCoordinate(2), 1., 0.01);
-	//ASSERT_NEAR(pt.getNorm(), 1., 0.01) << "\n >> this have to be confirmed, I am not sure about his answer";
+	EXPECT_NEAR(pt.getNorm(), 1., 0.01);
+	EXPECT_NEAR(pt1.getNorm(), 2.34, 0.01);
+	EXPECT_NEAR(pt2.getNorm(), 2.57, 0.01);
 
 
 }

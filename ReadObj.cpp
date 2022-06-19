@@ -72,7 +72,10 @@ point parseVertices(vector<string> seglist)
     {
         std::stringstream test1(word);
         if (word != "")
+        {
+            pt.dimension++;
             pt.X.push_back(stoi(word));
+        }
     }
 
     return pt;

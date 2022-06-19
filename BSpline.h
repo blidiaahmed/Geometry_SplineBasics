@@ -1,5 +1,4 @@
-#ifndef BSpline_H
-#define BSpline_H
+#pragma once
 using namespace std;
 class BSpline
 {
@@ -12,7 +11,6 @@ public:
 	vector<unsigned int> controlGridShape;
 
 	void computeControlGridShape();
-	void computePolynomialKnotsDistribution();
 	vector<vector<float>> BSpline::multivariatePolynomialKnotDistribution(
 		unsigned int dim, vector<unsigned int>& deg);
 	//contructors
@@ -35,4 +33,3 @@ public:
 };
 
 vector<float>& UnivariatePolynomialKnotDistribution(int deg, vector<float>& knts);
-#endif //BSpline_H
