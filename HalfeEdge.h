@@ -45,7 +45,7 @@ public:
 	int EdgesNumber = -1;
 };
 
-class HalfeEdgeMesh
+class HalfEdgeMesh
 {
 public:
 	vector<Vertex> vertices;
@@ -55,10 +55,10 @@ public:
 	map<set<int>,edge> edges;
 	set<set<int>> SetEdges;//two coordinates for vertex index, and the last gives the edge index
 	//constructor
-	HalfeEdgeMesh() = default;
-	HalfeEdgeMesh(OBJMesh Om);
+	HalfEdgeMesh() = default;
+	HalfEdgeMesh(OBJMesh Om);
 	
 	point EvaluateHEMesh(vector<float> x, int hedgeIndex);
-	HEdge* HalfeEdgeMesh::Privious_edge_finder(HEdge* CurrentHalfeEdge, Face* currentFace);
+	HEdge* HalfEdgeMesh::Privious_Hedge_finder(HEdge* CurrentHalfeEdge, Face* currentFace);
 };
 

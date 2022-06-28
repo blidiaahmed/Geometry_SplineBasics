@@ -4,12 +4,20 @@
 
 
 
-HalfeEdgeMesh ConvertObjToHEdge(OBJMesh Om)
+HalfEdgeMesh ConvertObjToHEdge(OBJMesh Om)
 {
-	HalfeEdgeMesh HEM;
+	HalfEdgeMesh HEM;
 
 	// copy points
 	CopyPoints(Om, HEM);
+
+	Extract_HalfEdges_FromFaces(Om, HEM);
+
+	return HEM;
+}
+
+void Extract_HalfEdges_FromFaces(OBJMesh& Om, HalfEdgeMesh& HEM)
+{
 
 	for (vector<int>& fc : Om.faces)
 	{
@@ -21,7 +29,6 @@ HalfeEdgeMesh ConvertObjToHEdge(OBJMesh Om)
 			HEM.HalfeEdges.push_back(HEdge());
 			HEdge& CurrentHalfEdge = HEM.HalfeEdges.back();
 			CurrentHalfEdge.vertex = fc[index];
-
 
 			//compute the edge corresponding to he
 			int  nextIndex = (index < fc.size() - 1) ? index + 1 : 0;
@@ -46,34 +53,32 @@ HalfeEdgeMesh ConvertObjToHEdge(OBJMesh Om)
 				CurrentHalfEdge.twin = HEM.edges[CurrentEdge_VerticesSet].HEdge;
 				HEM.HalfeEdges[HEM.edges[CurrentEdge_VerticesSet].HEdge - 1].twin = HEM.HalfeEdges.size();
 			}
+
 			//next half edge
-			if (index < CurrentFace.EdgesNumber -1)
+			if (index < CurrentFace.EdgesNumber - 1)
 			{
 				CurrentHalfEdge.next = HEM.HalfeEdges.size() + 1;
 			}
 			else
 			{
-				CurrentHalfEdge.next = HEM.HalfeEdges.size()- CurrentFace.EdgesNumber+1;
+				CurrentHalfEdge.next = HEM.HalfeEdges.size() - CurrentFace.EdgesNumber + 1;
 			}
+
 			// specify the face
 			CurrentHalfEdge.face = HEM.faces.size();
-
 
 			// associate to the current vertex  the current halfe edge
 			HEM.vertices[fc[index] - 1].HalfEdge = HEM.HalfeEdges.size();
 
 			if (index == 0)
 			{
-				CurrentFace.HEdge = HEM.HalfeEdges.size() ;
+				CurrentFace.HEdge = HEM.HalfeEdges.size();
 			}
 		}
 	}
-
-	return HEM;
 }
 
-
-void CopyPoints(OBJMesh& Om, HalfeEdgeMesh& HEM)
+void CopyPoints(OBJMesh& Om, HalfEdgeMesh& HEM)
 {
 	for (point pt : Om.points)
 	{

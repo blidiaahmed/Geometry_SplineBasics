@@ -44,6 +44,11 @@
     <ClCompile Include="WriteObj.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="Example.cpp" />
+    <ClCompile Include="MultiPatch.cpp" />
+    <ClCompile Include="TestMultipatch.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -81,6 +86,12 @@
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="MeshConvert.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Example.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPatch.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,7 +8,7 @@ TEST(point, constructorsAndBasicFunctions)
 	point pt2(dim);
 	vector<float> X = { 1.0,1.2 };
 	point pt3(move(X));
-	EXPECT_EQ(pt1.getDimension(), 1);
+	EXPECT_EQ(pt1.getDimension(), 0);
 	EXPECT_EQ(pt2.getDimension(), dim);
 	EXPECT_EQ(pt3.getDimension(), 2);
 	EXPECT_EQ(floor((pt3.getCoordinate(1)- 1.2)/100)*100,0);
