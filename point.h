@@ -7,6 +7,9 @@ public:
 	unsigned int dimension;
 	vector<float> X;
 	point();
+	//point(const point & pt);
+	//point(const point && pt);
+
 	point(int dim);
 	point(vector<float>& x);
 	

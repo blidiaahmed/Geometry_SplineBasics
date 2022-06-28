@@ -63,7 +63,7 @@ vector<int> parseFaces(vector<string> seglist)
 }
 
 
-point parseVertices(vector<string> seglist)
+point parseVertices(vector<string>& seglist)
 {
     seglist.erase(seglist.begin());
     point pt;
@@ -74,7 +74,7 @@ point parseVertices(vector<string> seglist)
         if (word != "")
         {
             pt.dimension++;
-            pt.X.push_back(stoi(word));
+            pt.X.push_back(stof(word));
         }
     }
 

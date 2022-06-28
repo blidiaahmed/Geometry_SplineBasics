@@ -1,6 +1,7 @@
 #pragma once
 #include"HalfeEdge.h"
 #include "OBJMesh.h"
-void CopyPoints(OBJMesh& Om, HalfeEdgeMesh& HEM);
-HalfeEdgeMesh ConvertObjToHEdge(OBJMesh Om);
+void Extract_HalfEdges_FromFaces(OBJMesh& Om, HalfEdgeMesh& HEM);
+void CopyPoints(OBJMesh& Om, HalfEdgeMesh& HEM);
+HalfEdgeMesh ConvertObjToHEdge(OBJMesh Om);
 

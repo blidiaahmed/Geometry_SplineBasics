@@ -3,11 +3,13 @@
 
 using namespace std;
 // constructors
-point::point() :point(1){}
+point::point() :point(0){}
 
 point::point(int dim):dimension(dim),X(dim){}
 point::point(vector<float>& x):X(x),dimension(x.size()) {}
 point::point(vector<float>&& x) : X(x), dimension(x.size()) {}
+//point::point(const point& pt) : X(pt.X), dimension(pt.dimension) {};
+//point::point(const point&& pt) : X(pt.X), dimension(pt.dimension) {};
 // getters
 unsigned int point::getDimension() { return dimension; }
 float		 point::getCoordinate(unsigned int i) { return X[i]; }
