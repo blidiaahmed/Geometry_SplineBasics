@@ -33,8 +33,11 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="ApproximateCatmullClark.h" />
     <ClInclude Include="BSpline.h" />
     <ClInclude Include="Example.h" />
+    <ClInclude Include="functionApproximation.h" />
+    <ClInclude Include="knotInsertion_Splines.h" />
     <ClInclude Include="MultiPatch.h" />
     <ClInclude Include="MeshConvert.h" />
     <ClInclude Include="TestConvert.cpp" />
@@ -47,6 +50,7 @@
     <ClInclude Include="TestSplineFunction.cpp" />
     <ClInclude Include="splineFunctions.h" />
     <ClInclude Include="TestBSpline.cpp" />
+    <ClInclude Include="unstructuredSplines.h" />
     <ClInclude Include="WriteObj.h" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +58,7 @@
     <ClCompile Include="BSpline.cpp" />
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="HalfeEdge.cpp" />
+    <ClCompile Include="knotInsertion_Splines.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="MeshConvert.cpp" />
     <ClCompile Include="MultiPatch.cpp" />
@@ -72,6 +77,7 @@
     <ClCompile Include="TestObjRead.cpp" />
     <ClCompile Include="TestPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
+    <ClCompile Include="TestKnotInsertion_splines.cpp" />
     <ClCompile Include="WriteObj.cpp" />
   </ItemGroup>
   <ItemGroup>
