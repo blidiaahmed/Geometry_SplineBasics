@@ -50,3 +50,15 @@ void Example_SplineMesh(OBJMesh& Om) {
 	int precision = 5;
 	Om = sp.ProduceOBJMesh(precision);
 }
+
+
+void tensor_example(vector<vector<point>> &tensor)
+{
+	tensor=vector<vector<point>>
+	{
+		vector<point>{point({ 0,0,1 }), point({ 1,0,1 }), point({ 2,0,1 }), point({ 3,0,1 }) },
+			vector<point>{point({ 0,1,1 }), point({ 1,1,1 }), point({ 2,1,1 }), point({ 3,1,1 }) },
+			vector<point>{point({ 0,2,1 }), point({ 1,2,1 }), point({ 2,2,1 }), point({ 3,2,1 })},
+			vector<point>{point({ 0,3,1 }), point({ 1,3,1 }), point({ 2,3,1 }), point({ 3,3,1 })}
+	};
+}

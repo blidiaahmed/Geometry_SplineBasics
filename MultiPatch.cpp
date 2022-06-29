@@ -1,4 +1,5 @@
 #include "pch.h"
+#include"Example.h"
 #include "MultiPatch.h"
 #include "HalfeEdge.h"
 multipatch::multipatch(HalfEdgeMesh & hem)
@@ -9,13 +10,7 @@ multipatch::multipatch(HalfEdgeMesh & hem)
 		Splines.push_back(spline(3));
 		spline& sp = Splines[i];
 		sp.BS = BSpline(2);
-		sp.tensor2 = vector<vector<point>>
-		{
-			vector<point>{point({ 0,0,1 }), point({ 1,0,1 }), point({ 2,0,1 }), point({ 3,0,1 }) },
-			vector<point>{point({ 0,1,1 }), point({ 1,1,1 }), point({ 2,1,1 }) , point({ 3,1,1 }) },
-			vector<point>{point({ 0,2,1 }), point({ 1,2,1 }), point({ 2,2,1 }), point({ 3,2,1 })},
-			vector<point>{point({ 0,3,1 }), point({ 1,3,1 }), point({2,3,1}), point({3,3,1})}
-		};
+		tensor_example(sp.tensor2);
 
 		Interpolation_QuadPatch(i+1, hem, sp);
 	}

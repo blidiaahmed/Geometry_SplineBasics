@@ -44,55 +44,80 @@
     <ClCompile Include="WriteObj.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="Example.cpp" />
-    <ClCompile Include="MultiPatch.cpp" />
     <ClCompile Include="TestMultipatch.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPatch.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp">
+      <Filter>examples</Filter>
+    </ClCompile>
+    <ClCompile Include="knotInsertion_Splines.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TestKnotInsertion_splines.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="point.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="BSpline.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="TestBSpline.cpp">
       <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="splineFunctions.h">
-      <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="TestSplineFunction.cpp">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="WriteObj.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJMesh.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="HalfeEdge.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="ReadObj.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="TestConvert.cpp">
       <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshConvert.h">
-      <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="Example.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="MultiPatch.h">
       <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ApproximateCatmullClark.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="functionApproximation.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadObj.h">
+      <Filter>headers\inOut</Filter>
+    </ClInclude>
+    <ClInclude Include="WriteObj.h">
+      <Filter>headers\inOut</Filter>
+    </ClInclude>
+    <ClInclude Include="BSpline.h">
+      <Filter>headers\Splines</Filter>
+    </ClInclude>
+    <ClInclude Include="splineFunctions.h">
+      <Filter>headers\Splines</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>headers\Splines</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJMesh.h">
+      <Filter>headers\ObjMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="point.h">
+      <Filter>headers\ObjMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="HalfeEdge.h">
+      <Filter>headers\halfeEdgeMeshes</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshConvert.h">
+      <Filter>headers\halfeEdgeMeshes</Filter>
+    </ClInclude>
+    <ClInclude Include="unstructuredSplines.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="knotInsertion_Splines.h">
+      <Filter>headers\Splines</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolicComputations.h">
+      <Filter>Todo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +129,24 @@
     </Filter>
     <Filter Include="tests">
       <UniqueIdentifier>{fc118fdc-84e2-429b-a864-7318e1ab485e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="examples">
+      <UniqueIdentifier>{4cb36301-6c28-4fcb-aa57-9157b62acd2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Todo">
+      <UniqueIdentifier>{1348dac0-92aa-49d4-a0e8-ce90c5ef9d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\inOut">
+      <UniqueIdentifier>{9ff5d289-74b6-4cd2-8ef1-5089f6e99c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\Splines">
+      <UniqueIdentifier>{26e3bc83-a36a-4346-b407-7f7e13534bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\ObjMesh">
+      <UniqueIdentifier>{49ab96cd-b819-49cb-ba68-216d4e3436fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\halfeEdgeMeshes">
+      <UniqueIdentifier>{a5bca56b-15af-44e5-864a-aecc8f764a85}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

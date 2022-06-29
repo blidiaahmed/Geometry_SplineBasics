@@ -1,4 +1,5 @@
 #include "pch.h"
+#include"knotInsertion_Splines.h"
 #include "splineFunctions.h"
 #include <iostream>
 
@@ -7,6 +8,14 @@ unsigned __int8 spline::getAmbiantDimension()
 {
 
 	return AmbiantDimension;
+}
+
+void spline::knotInsert(float knotToInsert, int axe)
+{
+	if (BS.ParametricDimension==1)
+		knotInsertion::knotInsert(tensor1,BS.knot[0],  BS.degree[0],  knotToInsert);
+	if (BS.ParametricDimension == 2);
+		//knotInsertion::knotInsert(tensor2, BS.knot[0], BS.degree[0], knotToInsert);
 }
 
 point spline::Evaluate(float x)

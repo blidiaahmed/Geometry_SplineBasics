@@ -22,11 +22,21 @@ public:
 	spline() :BS(), tensor1() {};
 	spline(unsigned __int8 dim) :AmbiantDimension(dim), BS() 
 	{
-		if (AmbiantDimension == 1) tensor1=vector<point>();
-		else tensor1= vector<point>();
+		 tensor1= vector<point>();
 	};
-	
-	
+	spline(unsigned int dim,
+		vector<unsigned int> degreeVector,
+		vector< vector<float>> knotVector) :AmbiantDimension(dim), 
+		BS( dim,
+			 degreeVector,
+			 knotVector
+			)
+	{
+		tensor1 = vector<point>();
+	};
+	//knot insertion
+	void knotInsert(float knotToInsert, int axe);
+
 	//evaluation function
 	point Evaluate(float x);
 	point Evaluate(vector<float> x);
