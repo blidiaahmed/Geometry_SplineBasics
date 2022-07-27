@@ -4,6 +4,7 @@
 #include "splineFunctions.h"
 #include"point.h"
 namespace knotInsertion {
+
 	void knotInsert(vector<point>& controlePoints, vector<float>& knots,
 		int degree, float additionalKnot);
 
@@ -22,3 +23,4 @@ namespace knotInsertion {
 	void computeASingleNewControlePoint_knotInsertion(point& Q, int i, vector<point>& controlePoints,
 		vector<float>& knots, int degree, float knotToInsert, int intervalIndex);
 }
+

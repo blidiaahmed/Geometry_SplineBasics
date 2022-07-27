@@ -13,6 +13,7 @@ TEST(splineFunction, SplineCurve1D)
 
 	int ParametricDimension = 1;
 
+
 	spline sp(ParametricDimension, degreeVector,knotVector);
 
 	sp.tensor1.push_back(point(vector<float>{ 1. }));
@@ -24,6 +25,7 @@ TEST(splineFunction, SplineCurve1D)
 	EXPECT_NEAR(pt.getNorm(), 1.53, 0.01);
 	cout<< (sp.Evaluate(0.001) - sp.Evaluate(0.)).getNorm()/0.001 <<endl;
 }
+
 
 TEST(splineFunction, SplineCurve3D)
 {
@@ -46,6 +48,28 @@ TEST(splineFunction, SplineCurve3D_KnotInsertion)
 		values.push_back(sp.Evaluate(i / 10.0));
 	}
 	
+	sp.knotInsert(0.5, 0);
+	float error = 0;
+
+	for (int i = 0;i < 11; i++)
+	{
+		point ptt = values[i];
+		point pt = values[i] - sp.Evaluate(i / 10.0);
+		error += pt.getNorm();
+	}
+	ASSERT_NEAR(error, 0, 0.001);
+}
+
+TEST(splineFunction, SplineCurve3D_KnotInsertion)
+{
+	spline sp(3);
+	sp.tensor1 = vector<point>({ point({0,0,0}),point({1,0,0}),point({0,1,0}),point({1,1,1}) });
+	vector<point> values;
+	for (int i = 0;i < 11; i++)
+	{
+		values.push_back(sp.Evaluate(i / 10.0));
+	}
+
 	sp.knotInsert(0.5, 0);
 	float error = 0;
 
