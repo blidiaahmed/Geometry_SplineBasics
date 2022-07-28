@@ -115,9 +115,11 @@
     </ClInclude>
     <ClInclude Include="knotInsertion_Splines.h">
       <Filter>headers\Splines</Filter>
+
     </ClInclude>
     <ClInclude Include="SymbolicComputations.h">
       <Filter>Todo</Filter>
+
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
