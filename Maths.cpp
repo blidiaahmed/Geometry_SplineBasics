@@ -9,7 +9,7 @@ float evaluateSpline(float x, vector<float> t, int m // m is the number of knots
 )
 {
 
-	int n = m - k - 1;
+	
 	float alpha = 0;
 	vector< float> d(c);
 	for (int r = 1; r <= p;r++)
@@ -84,10 +84,10 @@ point evaluateTensorSpline(vector<float> x, vector<vector<float>> t, vector<int>
 	vector<point> C; 
 	for (int i = 0; i < c.size();i++)
 	{		
-		C.push_back(evaluateSpline(x[0], t[0], m[0], c[i], p[0]));
+		C.push_back(evaluateSpline(x[0], t[1], m[0], c[i], p[0]));
 	}
 
-	point pt(evaluateSpline(x[1], t[1], m[1], C, p[1]));
+	point pt(evaluateSpline(x[1], t[0], m[1], C, p[1]));
 	return pt;
 }
 float factorial(int n)

@@ -37,6 +37,9 @@
     <ClInclude Include="BSpline.h" />
     <ClInclude Include="Example.h" />
     <ClInclude Include="functionApproximation.h" />
+
+    <ClInclude Include="SymbolicComputations.h" />
+
     <ClInclude Include="knotInsertion_Splines.h" />
     <ClInclude Include="MultiPatch.h" />
     <ClInclude Include="MeshConvert.h" />

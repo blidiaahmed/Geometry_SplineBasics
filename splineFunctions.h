@@ -24,7 +24,17 @@ public:
 	{
 		 tensor1= vector<point>();
 	};
-	
+	spline(unsigned int dim,
+		vector<unsigned int> degreeVector,
+		vector< vector<float>> knotVector) :AmbiantDimension(dim), 
+		BS( dim,
+			 degreeVector,
+			 knotVector
+			)
+	{
+		tensor1 = vector<point>();
+	};
+
 	//knot insertion
 	void knotInsert(float knotToInsert, int axe);
 

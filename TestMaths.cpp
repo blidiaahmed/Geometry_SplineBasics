@@ -1,5 +1,5 @@
-
 #include "pch.h"
+#include"Example.h"
 #include"Maths.h"
 using namespace std;
 
@@ -76,13 +76,8 @@ TEST(TestMaths, 3dSplineSurface)
 	vector<float> x{ 0,0 };
 	vector<vector<float>> t{ vector<float>{0,0,0,0,1,1,1,1},vector<float>{0,0,0,0,1,1,1,1} };
 	vector<int> m{ 7,7 };
-	vector<vector<point>> c
-	{
-		vector<point>{point({ 0,0,1 }), point({ 1,0,1 }), point({ 2,0,1 }), point({ 3,0,1 }) },
-			vector<point>{point({ 0,1,1 }), point({ 1,1,1 }), point({ 2,1,1 }) , point({ 3,1,1 }) },
-			vector<point>{point({ 0,2,1 }), point({ 1,2,1 }), point({ 2,2,1 }), point({ 3,2,1 })},
-	vector<point>{point({ 0,3,1}), point({1,3,1}), point({2,3,1}), point({3,3,1})}
-	};
+	vector<vector<point>> c;
+	tensor_example(c);
 	vector< int > p{ 3,3 };
 	point pt(evaluateTensorSpline(x, t, m, c, p));
 	ASSERT_NEAR(pt.getNorm(), 1, 0.1);
