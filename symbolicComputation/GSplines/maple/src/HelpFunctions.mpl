@@ -14,3 +14,12 @@ if acces(knotsVector, i) < acces(knotsVector, i + 1) then
      end do;
       return cmp;
        end proc;
+
+
+AllIntevalIndexes := proc(knots)
+local allIndexes, k;
+allIndexes := []; 
+for k to nops(knots) - 1 do if knots[k] < knots[k + 1] then allIndexes := [op(allIndexes), k - 1]; end if;
+end do;
+return allIndexes; 
+end proc:
