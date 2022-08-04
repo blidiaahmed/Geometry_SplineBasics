@@ -9,7 +9,9 @@
 
 TEST(TestkontInsertion_spline, UnchangebilityOfTheCurve)
 
+
 TEST(TestkontInsertion_spline, controlPointsNumber)
+
 
 {
 	spline sp(3);
