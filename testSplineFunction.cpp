@@ -13,6 +13,7 @@ TEST(splineFunction, SplineCurve1D)
 
 	int ParametricDimension = 1;
 
+
 	spline sp(ParametricDimension, degreeVector,knotVector);
 
 	sp.tensor1.push_back(point(vector<float>{ 1. }));

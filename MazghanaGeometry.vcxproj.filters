@@ -121,6 +121,10 @@
       <Filter>Todo</Filter>
 
     </ClInclude>
+    <ClInclude Include="SymbolicComputations.h">
+      <Filter>Todo</Filter>
+
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sources">

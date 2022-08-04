@@ -9,6 +9,10 @@
 
 TEST(TestkontInsertion_spline, UnchangebilityOfTheCurve)
 
+
+TEST(TestkontInsertion_spline, controlPointsNumber)
+
+
 {
 	spline sp(3);
 	sp.tensor1 = vector<point>({ point({0,0,0}),point({1,0,0}),point({0,1,0}),point({1,1,1}) });
