@@ -14,6 +14,7 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheCurve)
 		values.push_back(sp.Evaluate(i / 10.0));
 	}
 	knotInsertion::knotInsert(sp.tensor1, sp.BS.knot[0], sp.BS.degree[0], 0.5);
+	ASSERT_EQ(sp.tensor1.size(),5 );
 	float error=0;
 
 	for (int i = 0;i < 11; i++)
@@ -46,7 +47,6 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheSurface_AxeOne)
 	int degree = sp.BS.degree[axeOfInsertion];
 	float knotToInsert = 0.5;
 	knotInsertion::knotInsert(controlePoints, knots, degree, knotToInsert, axeOfInsertion);
-
 	ASSERT_EQ(controlePoints.size(), 5);
 	// evaluation test
 	int counter = 0;
@@ -85,8 +85,8 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheSurface_AxeTwo)
 	float knotToInsert = 0.5;
 	
 	knotInsertion::knotInsert(controlePoints, knots, degree, knotToInsert, axeOfInsertion);
-	
-	ASSERT_EQ(controlePoints[0].size(), 5);
+	for (int i = 0; i < 4;i++)
+		ASSERT_EQ(controlePoints[i].size(), 5);
 
 	// evaluation test
 	int counter = 0;

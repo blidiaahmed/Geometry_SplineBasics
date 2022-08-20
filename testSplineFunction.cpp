@@ -91,14 +91,19 @@ TEST(splineFunction, SplineSurface3D_KnotInsertion)
 		values.push_back(sp.Evaluate(vect));
 	}
 
-	/*sp.knotInsert(0.5, 0);
+	sp.knotInsert(0.5, 0);
 	float error = 0;
-
+	int cmp = 0;
+	for (int j = 0;j < 11; j++)
 	for (int i = 0;i < 11; i++)
 	{
-		point ptt = values[i];
-		point pt = values[i] - sp.Evaluate(i / 10.0);
+		float I = i / 10.0;
+		float J = j / 10.0;
+		vector<float> vect({ I, J });
+		
+		point pt = values[cmp++] - sp.Evaluate(vect);
 		error += pt.getNorm();
+		
 	}
-	ASSERT_NEAR(error, 0, 0.001);*/
+	ASSERT_NEAR(error, 0, 0.001);
 }
