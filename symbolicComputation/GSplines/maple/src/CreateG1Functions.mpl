@@ -4,8 +4,8 @@ with(Student[LinearAlgebra]);
 
 CreateG1EdgeFuction := proc(Valence, knotsLists, degrees, ControleGridShape) 
 local F1ControlePoints, i, j, F2ControlePoints, axe, F1ValuesAtEdge, F2ValuesAtEdge, sys, sol;
-F1ControlePoints := [seq([seq(f[1][i, j], j = 0 .. ControleGridShape)], i = 0 .. ControleGridShape)]; 
-F2ControlePoints := [seq([seq(f[2][i, j], j = 0 .. ControleGridShape)], i = 0 .. ControleGridShape)];
+F1ControlePoints := [seq([seq(f[1][i, j], j = 0 .. ControleGridShape-1)], i = 0 .. ControleGridShape-1)]; 
+F2ControlePoints := [seq([seq(f[2][i, j], j = 0 .. ControleGridShape-1)], i = 0 .. ControleGridShape-1)];
 axe := 1;
 F1ValuesAtEdge := ValuesAtEdge(axe, Valence, F1ControlePoints, knotsLists, degrees, ControleGridShape); 
 axe := 2;

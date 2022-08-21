@@ -19,7 +19,7 @@ public:
 
 	unsigned __int8 getAmbiantDimension();
 	// Constructors
-	spline() :BS(), tensor1() {};
+	spline():BS(), tensor1() {};
 	spline(unsigned __int8 dim) :AmbiantDimension(dim), BS() 
 	{
 		 tensor1= vector<point>();
@@ -30,6 +30,7 @@ public:
 		BS( dim,
 			 degreeVector,
 			 knotVector
+
 			)
 	{
 		tensor1 = vector<point>();
