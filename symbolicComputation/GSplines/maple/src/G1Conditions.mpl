@@ -40,7 +40,7 @@ end proc;
 
 G1Conditions := proc(F1ValuesAtEdge, F2ValuesAtEdge)
   local c, G1Expression, sys, i, j;
-  c := simplify(cos(2*pi/valence));
+  c := simplify(cos(2*Pi/valence));
   a(u) := 2*c*(1 - u)^2;
   b(u) := -1; 
   G1Expression := subs(v = 0, diff(F1ValuesAtEdge, v)) - a(u)*subs(v = u, subs([u = 0], diff(F2ValuesAtEdge, v))) - b(u)*subs(v = u, subs([u = 0], diff(F2ValuesAtEdge, u)));
