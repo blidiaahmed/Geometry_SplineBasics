@@ -59,6 +59,9 @@
     <ClCompile Include="TestKnotInsertion_splines.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="TestKnotInsertion_splines2.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

@@ -75,6 +75,7 @@
     <ClCompile Include="ReadObj.cpp" />
     <ClCompile Include="splineFunctions.cpp" />
     <ClCompile Include="TestHalfEdge.cpp" />
+    <ClCompile Include="TestKnotInsertion_splines2.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="TestMultipatch.cpp" />
     <ClCompile Include="TestObjRead.cpp" />
