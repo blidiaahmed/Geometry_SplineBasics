@@ -9,10 +9,13 @@ class multipatch
 public:
 	HalfEdgeMesh HalfEdge_Mesh;
 	vector<spline> Splines;
-
+	vector<vector<float>> ControleVector;
 	multipatch(HalfEdgeMesh &hem);
-
-
+	void CreateControleVector();
+	void AddQuadFaceControlePoints(Face& f);
+	void AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace);
+	void ComputeQuarterLoopCounters(int& EdgeAxeLoopCounter,int& OtherAxeLoopCounter, HEdge& he, int& HalfEdgeIndexInFace);
+	void AddCentralControlePoint(HEdge & he, int EdgeAxeControlePointsNumber, int OtherAxeControlePointsNumber);
 };
 
 void Interpolation_QuadPatch(int face, HalfEdgeMesh hem, spline& sp);
