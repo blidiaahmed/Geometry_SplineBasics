@@ -6,6 +6,12 @@
 #include "OBJMesh.h"
 using namespace std;
 
+// Important remark
+// all integers start from one HalfEdge, face... but when replace in vector put integer-1
+// example: in face the principal halfelge is an integer "int HEdge=-1;" larger than 1, 
+// but when replaced in the vector we put HEdge-1;
+
+
 class Vertex
 {
 public:

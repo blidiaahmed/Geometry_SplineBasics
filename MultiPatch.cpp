@@ -1,7 +1,10 @@
 #include "pch.h"
+#include<cmath>
 #include"Example.h"
 #include "MultiPatch.h"
 #include "HalfeEdge.h"
+#include "Multipatch_Helper.h"
+
 multipatch::multipatch(HalfEdgeMesh & hem)
 {
 	HalfEdge_Mesh = hem;
@@ -13,10 +16,66 @@ multipatch::multipatch(HalfEdgeMesh & hem)
 		tensor_example(sp.tensor2);
 
 		Interpolation_QuadPatch(i+1, hem, sp);
-	}
-
-	
+	}	
 }
+
+int multipatch::previousFaces_CtrlPtsCounter(int face)
+{
+	int previousFaces_CtrlPtsCounter = 0;
+	for (int faceIndex = 1;faceIndex < face;faceIndex++)
+	{
+		int CtrPtNb_PerOneFace = Splines[faceIndex - 1].BS.controlGridShape[0] *
+			Splines[faceIndex - 1].BS.controlGridShape[1];
+		previousFaces_CtrlPtsCounter += CtrPtNb_PerOneFace;
+	}
+	return previousFaces_CtrlPtsCounter;
+}
+
+
+void multipatch::CreateG0Basis()
+{
+	
+	for (Face& f : HalfEdge_Mesh.faces)
+	{
+		//internal coefficients
+		
+		
+		HEdge& he = HalfEdge_Mesh.HalfeEdges[f.HEdge - 1];
+		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
+		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
+
+		for (int i =0; i< EdgeAxeControlePointsNumber;i++)
+			for (int j = 0;j< OtherAxeControlePointsNumber;j++)
+			{
+				G0Basis.push_back(SparseMatrix());
+				G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1.));
+			}
+
+		
+	}
+	//edge coefficients
+	vector<bool> i_HalfEdge_used(HalfEdge_Mesh.HalfeEdges.size());
+	int HEdgeCounter = 0;
+	for (HEdge he : HalfEdge_Mesh.HalfeEdges)
+	{
+		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
+		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
+		HEdge NextEdge = HalfEdge_Mesh.HalfeEdges[he.next];
+		HEdge NextNextEdge = HalfEdge_Mesh.HalfeEdges[NextEdge.next];
+		HEdge PreviousEdge = HalfEdge_Mesh.HalfeEdges[NextNextEdge.next];
+		Face fc = HalfEdge_Mesh.faces[he.face];
+		
+		if (fc.HEdge == HEdgeCounter)
+		{
+			int i = 0;
+			int j = 0;
+			G0Basis.push_back(SparseMatrix());
+			G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1));
+		}
+		HEdgeCounter++;
+	}
+}
+
 
 void Interpolation_QuadPatch(int face, HalfEdgeMesh hem, spline& sp)
 

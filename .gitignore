@@ -113,3 +113,7 @@
 /.vs/MazghanaGeometry/v16/ipch/AutoPCH/78e9ed65866b1148/*.ipch
 /3DEngin/x64/Debug/3DEngin.tlog
 /symbolicComputation/GSplines/maple/.vs
+png
+.vs
+Libraries
+x64

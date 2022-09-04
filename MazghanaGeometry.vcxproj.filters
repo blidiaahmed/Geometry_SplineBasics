@@ -44,9 +44,6 @@
     <ClCompile Include="WriteObj.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="TestMultipatch.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="MultiPatch.cpp">
       <Filter>sources</Filter>
     </ClCompile>
@@ -62,6 +59,27 @@
     <ClCompile Include="TestKnotInsertion_splines2.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="TestSparseMatrix.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Multipatch_Helper.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="multipatchControlVector.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMultipatch.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestControleVector_Helpers.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestControleVector.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -75,9 +93,6 @@
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="Example.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiPatch.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="ApproximateCatmullClark.h">
@@ -113,13 +128,25 @@
     <ClInclude Include="MeshConvert.h">
       <Filter>headers\halfeEdgeMeshes</Filter>
     </ClInclude>
-    <ClInclude Include="unstructuredSplines.h">
-      <Filter>Todo</Filter>
-    </ClInclude>
     <ClInclude Include="knotInsertion_Splines.h">
       <Filter>headers\Splines</Filter>
     </ClInclude>
     <ClInclude Include="SymbolicComputations.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="unstructuredSplines.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPatch.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="sparseMatrix.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Multipatch_Helper.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="degreeElevtion.h">
       <Filter>Todo</Filter>
     </ClInclude>
   </ItemGroup>
@@ -150,6 +177,12 @@
     </Filter>
     <Filter Include="headers\halfeEdgeMeshes">
       <UniqueIdentifier>{a5bca56b-15af-44e5-864a-aecc8f764a85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\UnstructuredSplines">
+      <UniqueIdentifier>{afe79d69-01d5-41c6-b169-51aad5cba8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\MultipatchTests">
+      <UniqueIdentifier>{27dac623-63d0-461e-a4b9-f4bb0142fe04}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

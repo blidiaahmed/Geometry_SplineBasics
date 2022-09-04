@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "knotInsertion_Splines.h"
+#include"MultiPatch_Helper.h"
 namespace knotInsertion {
 	void knotInsert(vector<point>& controlePoints, vector<float>& knots, int degree, float knotToInsert)
 	{
@@ -33,7 +34,8 @@ namespace knotInsertion {
 
 
 	void knotInsert(vector<vector<point>>& controlePoints, vector< vector<float>>& knots,
-		int degree,float knotToInsert, int axeOfInsertion)
+		int degree,float knotToInsert, int axeOfInsertion //0 or 1
+	)
 	{
 		int intervalIndex = SelectIntervalIndex(knotToInsert, knots[axeOfInsertion]);
 		if (axeOfInsertion == 0)

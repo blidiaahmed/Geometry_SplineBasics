@@ -22,7 +22,6 @@ TEST(splineFunction, SplineCurve1D)
 	sp.tensor1.push_back(point(vector<float>{ 2. }));
 	point pt(sp.Evaluate(0.32));
 	EXPECT_NEAR(pt.getNorm(), 1.53, 0.01);
-	cout<< (sp.Evaluate(0.001) - sp.Evaluate(0.)).getNorm()/0.001 <<endl;
 }
 
 TEST(splineFunction, SplineCurve3D)
