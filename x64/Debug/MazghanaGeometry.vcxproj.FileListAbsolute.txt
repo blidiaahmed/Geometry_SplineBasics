@@ -1,0 +1,4 @@
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\x64\Debug\MazghanaGeometry.vcxproj.CopyComplete
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\x64\Debug\MazghanaGeometry.exe
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\x64\Debug\gtest.pdb
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\x64\Debug\gtest_main.pdb

@@ -1,0 +1,5 @@
+﻿  MultiPatch.cpp
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\MultiPatch.cpp(139,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\MultiPatch.cpp(140,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Utilisateur\source\repos\MazghanaGeometry\MultiPatch.cpp(144,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  MazghanaGeometry.vcxproj -> C:\Users\Utilisateur\source\repos\MazghanaGeometry\x64\Debug\MazghanaGeometry.exe

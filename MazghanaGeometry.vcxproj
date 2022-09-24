@@ -78,6 +78,7 @@
     <ClCompile Include="TestKnotInsertion_splines2.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="TestMultipatch.cpp" />
+    <ClCompile Include="TestMultipatchControleVector.cpp" />
     <ClCompile Include="TestObjRead.cpp" />
     <ClCompile Include="TestPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
