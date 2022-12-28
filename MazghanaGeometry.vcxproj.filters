@@ -44,9 +44,6 @@
     <ClCompile Include="WriteObj.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="TestMultipatch.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="MultiPatch.cpp">
       <Filter>sources</Filter>
     </ClCompile>
@@ -62,9 +59,29 @@
     <ClCompile Include="TestKnotInsertion_splines2.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="TestMultipatchControleVector.cpp">
+
+    <ClCompile Include="TestSparseMatrix.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="Multipatch_Helper.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="multipatchControlVector.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMultipatch.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestControleVector_Helpers.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestControleVector.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -131,6 +148,21 @@
     <ClInclude Include="MultiPatch.h">
       <Filter>headers\UnstructuredSplines</Filter>
     </ClInclude>
+    <ClInclude Include="unstructuredSplines.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPatch.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="sparseMatrix.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Multipatch_Helper.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="degreeElevtion.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sources">
@@ -163,6 +195,10 @@
     <Filter Include="headers\UnstructuredSplines">
       <UniqueIdentifier>{afe79d69-01d5-41c6-b169-51aad5cba8b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tests\MultipatchTests">
+      <UniqueIdentifier>{27dac623-63d0-461e-a4b9-f4bb0142fe04}</UniqueIdentifier>
+    </Filter>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

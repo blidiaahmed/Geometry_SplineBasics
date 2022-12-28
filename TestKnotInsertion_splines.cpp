@@ -55,7 +55,9 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheSurface_AxeOne)
 	vector< vector<float>>& knots = sp.BS.knot;
 	int degree = sp.BS.degree[axeOfInsertion];
 	float knotToInsert = 0.5;
-	knotInsertion::knotInsert(controlePoints, knots, degree, knotToInsert, axeOfInsertion);
+	knotInsertion::knotInsert(controlePoints,
+		knots, degree, knotToInsert, 
+		axeOfInsertion);
 	ASSERT_EQ(controlePoints.size(), 5);
 	// evaluation test
 	int counter = 0;

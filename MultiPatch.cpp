@@ -3,6 +3,8 @@
 #include"Example.h"
 #include "MultiPatch.h"
 #include "HalfeEdge.h"
+#include "Multipatch_Helper.h"
+
 multipatch::multipatch(HalfEdgeMesh & hem)
 {
 	HalfEdge_Mesh = hem;
@@ -17,90 +19,66 @@ multipatch::multipatch(HalfEdgeMesh & hem)
 	}	
 }
 
-void multipatch::CreateControleVector()
+
+int multipatch::previousFaces_CtrlPtsCounter(int face)
 {
-	int counter = 0;
+	int previousFaces_CtrlPtsCounter = 0;
+	for (int faceIndex = 1;faceIndex < face;faceIndex++)
+	{
+		int CtrPtNb_PerOneFace = Splines[faceIndex - 1].BS.controlGridShape[0] *
+			Splines[faceIndex - 1].BS.controlGridShape[1];
+		previousFaces_CtrlPtsCounter += CtrPtNb_PerOneFace;
+
+	}
+	return previousFaces_CtrlPtsCounter;
+}
+
+
+void multipatch::CreateG0Basis()
+{
+
+	
 	for (Face& f : HalfEdge_Mesh.faces)
 	{
+		//internal coefficients
 		
-		for (unsigned __int8 i = 0;i < Splines[counter].AmbiantDimension;i++)
-			ControleVector.push_back(vector<float>());
-		AddQuadFaceControlePoints(f);
+		
+		HEdge& he = HalfEdge_Mesh.HalfeEdges[f.HEdge - 1];
+		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
+		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
+
+		for (int i =0; i< EdgeAxeControlePointsNumber;i++)
+			for (int j = 0;j< OtherAxeControlePointsNumber;j++)
+			{
+				G0Basis.push_back(SparseMatrix());
+				G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1.));
+			}
+
+		
 	}
-}
-
-void multipatch::AddQuadFaceControlePoints(Face& f)
-{
-	HEdge & he = HalfEdge_Mesh.HalfeEdges[f.HEdge-1];
-	for (int HalfEdgeIndexInFace = 1;HalfEdgeIndexInFace <=4;HalfEdgeIndexInFace++)
-			AddAQuarterFaceOfControlePoints(he,HalfEdgeIndexInFace);
-
-	int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
-	int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
-
-	if (EdgeAxeControlePointsNumber % 2 == 1 && OtherAxeControlePointsNumber % 2 == 1)
-		AddCentralControlePoint(he, EdgeAxeControlePointsNumber, OtherAxeControlePointsNumber);
-	//See explanation in figure Doc/CentralControlePointInFace.png
-
-}
-
-void multipatch::AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace // starts with 1
-)
-{
-	int EdgeAxeLoopCounter = 0;
-	int OtherAxeLoopCounter = 0;
-	int signexI = 1, signeyI = 0, signexJ = 0, signeyJ = 1;
-
-	ComputeQuarterLoopCounters(EdgeAxeLoopCounter, OtherAxeLoopCounter, he, HalfEdgeIndexInFace);
-	for (int i=0;i<EdgeAxeLoopCounter;i++)
-		for (int j = 0;j < OtherAxeLoopCounter;j++)
+	//edge coefficients
+	vector<bool> i_HalfEdge_used(HalfEdge_Mesh.HalfeEdges.size());
+	int HEdgeCounter = 0;
+	for (HEdge he : HalfEdge_Mesh.HalfeEdges)
+	{
+		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
+		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
+		HEdge NextEdge = HalfEdge_Mesh.HalfeEdges[he.next];
+		HEdge NextNextEdge = HalfEdge_Mesh.HalfeEdges[NextEdge.next];
+		HEdge PreviousEdge = HalfEdge_Mesh.HalfeEdges[NextNextEdge.next];
+		Face fc = HalfEdge_Mesh.faces[he.face];
+		
+		if (fc.HEdge == HEdgeCounter)
 		{
-			for (int k = 0;k < Splines[he.face - 1].AmbiantDimension;k++)
-				ControleVector[k].push_back(Splines[he.face - 1].tensor2[signexI*i+ signexJ*j][signeyI*i+ signeyJ*j].getCoordinate(k));
+			int i = 0;
+			int j = 0;
+			G0Basis.push_back(SparseMatrix());
+			G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1));
 		}
-}
-
-void multipatch::ComputeQuarterLoopCounters(int& EdgeAxeLoopCounter, int& OtherAxeLoopCounter, HEdge& he, int& HalfEdgeIndexInFace)
-{
-	int EdgeAxeControlePointsNumber;
-	int OtherAxeControlePointsNumber;
-	if (HalfEdgeIndexInFace == 1 || HalfEdgeIndexInFace == 3)
-	{
-		EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
-		OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
-	}
-	else
-	{
-		EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
-		OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
-	}
-
-	if (EdgeAxeControlePointsNumber % 2 == 0)
-	{
-		EdgeAxeLoopCounter = EdgeAxeControlePointsNumber / 2;
-	}
-	else
-	{
-		EdgeAxeLoopCounter = static_cast<int>(std::floor(EdgeAxeControlePointsNumber / 2) + 1);
-	}
-	if (OtherAxeControlePointsNumber % 2 == 0)
-	{
-	OtherAxeLoopCounter = OtherAxeControlePointsNumber / 2;
-	}
-	else
-	{
-	OtherAxeLoopCounter = static_cast<int>(std::floor(OtherAxeControlePointsNumber / 2) );
+		HEdgeCounter++;
 	}
 }
 
-void multipatch::AddCentralControlePoint(HEdge & he, int EdgeAxeControlePointsNumber, int OtherAxeControlePointsNumber)
-{
-	int i=static_cast<int>(std::floor(EdgeAxeControlePointsNumber / 2) + 1);
-	int j= static_cast<int>(std::floor(OtherAxeControlePointsNumber / 2) + 1);
-	for (int k = 0;k < Splines[he.face - 1].AmbiantDimension;k++)
-		ControleVector[k].push_back(Splines[he.face - 1].tensor2[i][j].getCoordinate(k));
-	
-}
 
 void Interpolation_QuadPatch(int face, HalfEdgeMesh hem, spline& sp)
 

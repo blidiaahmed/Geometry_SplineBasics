@@ -35,8 +35,12 @@
   <ItemGroup>
     <ClInclude Include="ApproximateCatmullClark.h" />
     <ClInclude Include="BSpline.h" />
+    <ClInclude Include="degreeElevtion.h" />
     <ClInclude Include="Example.h" />
     <ClInclude Include="functionApproximation.h" />
+
+    <ClInclude Include="Multipatch_Helper.h" />
+    <ClInclude Include="sparseMatrix.h" />
 
     <ClInclude Include="SymbolicComputations.h" />
 
@@ -65,6 +69,8 @@
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="MeshConvert.cpp" />
     <ClCompile Include="MultiPatch.cpp" />
+    <ClCompile Include="multipatchControlVector.cpp" />
+    <ClCompile Include="Multipatch_Helper.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -73,12 +79,17 @@
     </ClCompile>
     <ClCompile Include="point.cpp" />
     <ClCompile Include="ReadObj.cpp" />
+    <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp" />
+    <ClCompile Include="TestControleVector_Helpers.cpp" />
+    <ClCompile Include="TestSparseMatrix.cpp" />
     <ClCompile Include="splineFunctions.cpp" />
     <ClCompile Include="TestHalfEdge.cpp" />
     <ClCompile Include="TestKnotInsertion_splines2.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="TestMultipatch.cpp" />
-    <ClCompile Include="TestMultipatchControleVector.cpp" />
+
+    <ClCompile Include="TestControleVector.cpp" />
+
     <ClCompile Include="TestObjRead.cpp" />
     <ClCompile Include="TestPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
