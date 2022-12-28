@@ -11,7 +11,9 @@ TEST(splineFunction, SplineCurve1D)
 	vector<unsigned int > degreeVector= vector< unsigned int >();
 	degreeVector.push_back(3);
 
+
 	int ParametricDimension = 1;
+
 
 	spline sp(ParametricDimension, degreeVector,knotVector);
 
@@ -23,6 +25,7 @@ TEST(splineFunction, SplineCurve1D)
 	point pt(sp.Evaluate(0.32));
 	EXPECT_NEAR(pt.getNorm(), 1.53, 0.01);
 }
+
 
 TEST(splineFunction, SplineCurve3D)
 {
@@ -56,6 +59,7 @@ TEST(splineFunction, SplineCurve3D_KnotInsertion)
 	}
 	ASSERT_NEAR(error, 0, 0.001);
 }
+
 
 
 TEST(splineFunction, SplineSurface3D)

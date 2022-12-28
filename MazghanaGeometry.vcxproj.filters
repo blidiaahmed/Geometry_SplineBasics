@@ -59,6 +59,7 @@
     <ClCompile Include="TestKnotInsertion_splines2.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+
     <ClCompile Include="TestSparseMatrix.cpp">
       <Filter>tests</Filter>
     </ClCompile>
@@ -80,6 +81,7 @@
     <ClCompile Include="TestControleVector.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -130,9 +132,21 @@
     </ClInclude>
     <ClInclude Include="knotInsertion_Splines.h">
       <Filter>headers\Splines</Filter>
+
     </ClInclude>
     <ClInclude Include="SymbolicComputations.h">
       <Filter>Todo</Filter>
+
+    </ClInclude>
+    <ClInclude Include="SymbolicComputations.h">
+      <Filter>Todo</Filter>
+
+    </ClInclude>
+    <ClInclude Include="unstructuredSplines.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPatch.h">
+      <Filter>headers\UnstructuredSplines</Filter>
     </ClInclude>
     <ClInclude Include="unstructuredSplines.h">
       <Filter>headers\UnstructuredSplines</Filter>
@@ -184,6 +198,7 @@
     <Filter Include="tests\MultipatchTests">
       <UniqueIdentifier>{27dac623-63d0-461e-a4b9-f4bb0142fe04}</UniqueIdentifier>
     </Filter>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
