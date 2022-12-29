@@ -44,3 +44,27 @@ HEdge* HalfEdgeMesh::Privious_Hedge_finder(HEdge* CurrentHalfEdge, Face* current
 	return Hedge_Cursor;
 
 }
+
+
+//return 1 2 3 or 4
+int HalfEdgeMesh::HEdgeIndexInFace(int  CurrentHalfEdgeIndex)
+{
+	HEdge CurrentHalfEdge = HalfeEdges[CurrentHalfEdgeIndex-1];
+	
+	
+	int face=CurrentHalfEdge.face;
+	int PrincipalHEdge = faces[face-1].HEdge;
+	if (CurrentHalfEdgeIndex==PrincipalHEdge )return 1;
+	int nextHEdge = CurrentHalfEdge.next;
+	if (nextHEdge == PrincipalHEdge)return 4;
+
+	CurrentHalfEdge = HalfeEdges[nextHEdge - 1];
+	nextHEdge = CurrentHalfEdge.next;
+	if (nextHEdge == PrincipalHEdge)return 3;
+
+	CurrentHalfEdge = HalfeEdges[nextHEdge - 1];
+	nextHEdge = CurrentHalfEdge.next;
+	if (nextHEdge == PrincipalHEdge)return 2;
+
+	return 0;
+}

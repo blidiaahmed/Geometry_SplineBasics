@@ -137,3 +137,33 @@ TEST(HalfEdge, AltitudeExample)
 	//WriteOBJ("models/test.obj", Om);
 	//system("meshlab models/test.obj");
 }
+
+
+
+TEST(HalfEdge, FindHEdgeIndexInFace)
+{
+	OBJMesh Om = ReadObj("models/tube.obj");
+	HalfEdgeMesh hem(Om);
+	for (int i = 0;i < hem.faces.size();i++)
+	{
+		int PrincipalEdge = hem.faces[i].HEdge;
+		int NextHEdgeIndex = hem.HalfeEdges[PrincipalEdge - 1].next;
+		int testedHEdge = hem.HEdgeIndexInFace(NextHEdgeIndex);
+		EXPECT_EQ(testedHEdge, 2);
+
+		NextHEdgeIndex = hem.HalfeEdges[testedHEdge - 1].next;
+		testedHEdge = hem.HEdgeIndexInFace(NextHEdgeIndex);
+		EXPECT_EQ(testedHEdge, 3);
+
+		NextHEdgeIndex = hem.HalfeEdges[testedHEdge - 1].next;
+		testedHEdge = hem.HEdgeIndexInFace(NextHEdgeIndex);
+		EXPECT_EQ(testedHEdge, 4);
+
+		NextHEdgeIndex = hem.HalfeEdges[testedHEdge - 1].next;
+		testedHEdge = hem.HEdgeIndexInFace(NextHEdgeIndex);
+		EXPECT_EQ(testedHEdge, 1);
+	}
+
+	
+
+}

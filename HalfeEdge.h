@@ -66,5 +66,6 @@ public:
 	
 	point EvaluateHEMesh(vector<float> x, int hedgeIndex);
 	HEdge* HalfEdgeMesh::Privious_Hedge_finder(HEdge* CurrentHalfeEdge, Face* currentFace);
+	int HEdgeIndexInFace(int  CurrentHalfeEdgeIndex);
 };
 

@@ -149,6 +149,9 @@
     <ClInclude Include="degreeElevtion.h">
       <Filter>Todo</Filter>
     </ClInclude>
+    <ClInclude Include="ReOrientMesh.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sources">

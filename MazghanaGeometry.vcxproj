@@ -39,6 +39,7 @@
     <ClInclude Include="Example.h" />
     <ClInclude Include="functionApproximation.h" />
     <ClInclude Include="Multipatch_Helper.h" />
+    <ClInclude Include="ReOrientMesh.h" />
     <ClInclude Include="sparseMatrix.h" />
     <ClInclude Include="SymbolicComputations.h" />
     <ClInclude Include="knotInsertion_Splines.h" />
