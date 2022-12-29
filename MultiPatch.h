@@ -14,12 +14,15 @@ public:
 	multipatch(HalfEdgeMesh &hem);
 	void CreateControleVector();
 
-	int previousFaces_CtrlPtsCounter(int face);
-	point AccessControleVector(int face, int iIndex//start from zero
+	point AccessControleVector(int face
+		, int iIndex//start from zero
 		, int jIndex//same
 	);
+	point AccessControleVector(HEdge NxtHedge, int iIndex, int jIndex);
+
 	void CreateG0Basis();
 
+	int previousFaces_CtrlPtsCounter(int face);
 	void AddQuadFaceControlePoints(Face& f);
 	void AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace);
 	void ComputeQuarterLoopCounters(int& EdgeAxeLoopCounter,int& OtherAxeLoopCounter, 
