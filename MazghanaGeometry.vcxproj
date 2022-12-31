@@ -35,9 +35,11 @@
   <ItemGroup>
     <ClInclude Include="ApproximateCatmullClark.h" />
     <ClInclude Include="BSpline.h" />
+    <ClInclude Include="DeduceToplogy_GivenSetOfPatches.h" />
     <ClInclude Include="degreeElevtion.h" />
     <ClInclude Include="Example.h" />
     <ClInclude Include="functionApproximation.h" />
+    <ClInclude Include="ImproveSparseMatrices.h" />
     <ClInclude Include="Multipatch_Helper.h" />
     <ClInclude Include="ReOrientMesh.h" />
     <ClInclude Include="sparseMatrix.h" />
@@ -55,7 +57,6 @@
     <ClInclude Include="TestSplineFunction.cpp" />
     <ClInclude Include="splineFunctions.h" />
     <ClInclude Include="TestBSpline.cpp" />
-    <ClInclude Include="unstructuredSplines.h" />
     <ClInclude Include="WriteObj.h" />
   </ItemGroup>
   <ItemGroup>
@@ -77,8 +78,9 @@
     </ClCompile>
     <ClCompile Include="point.cpp" />
     <ClCompile Include="ReadObj.cpp" />
+    <ClCompile Include="TestEvaluateMultipatch.cpp" />
     <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp" />
-    <ClCompile Include="TestControleVector_Helpers.cpp" />
+    <ClCompile Include="TestMultipatch_Helpers.cpp" />
     <ClCompile Include="TestSparseMatrix.cpp" />
     <ClCompile Include="splineFunctions.cpp" />
     <ClCompile Include="TestHalfEdge.cpp" />

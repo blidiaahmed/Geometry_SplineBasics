@@ -44,9 +44,6 @@
     <ClCompile Include="WriteObj.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="MultiPatch.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="Example.cpp">
       <Filter>examples</Filter>
     </ClCompile>
@@ -62,23 +59,29 @@
     <ClCompile Include="TestSparseMatrix.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="Multipatch_Helper.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="multipatchControlVector.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="TestMultipatch.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
     <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
-    <ClCompile Include="TestControleVector_Helpers.cpp">
+    <ClCompile Include="TestMultipatch_Helpers.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
     <ClCompile Include="TestControleVector.cpp">
       <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestEvaluateMultipatch.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="multipatchControlVector.cpp">
+      <Filter>sources\UnstructuredSplines</Filter>
+    </ClCompile>
+    <ClCompile Include="Multipatch_Helper.cpp">
+      <Filter>sources\UnstructuredSplines</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPatch.cpp">
+      <Filter>sources\UnstructuredSplines</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +137,6 @@
     <ClInclude Include="SymbolicComputations.h">
       <Filter>Todo</Filter>
     </ClInclude>
-    <ClInclude Include="unstructuredSplines.h">
-      <Filter>headers\UnstructuredSplines</Filter>
-    </ClInclude>
     <ClInclude Include="MultiPatch.h">
       <Filter>headers\UnstructuredSplines</Filter>
     </ClInclude>
@@ -150,6 +150,12 @@
       <Filter>Todo</Filter>
     </ClInclude>
     <ClInclude Include="ReOrientMesh.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="DeduceToplogy_GivenSetOfPatches.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="ImproveSparseMatrices.h">
       <Filter>Todo</Filter>
     </ClInclude>
   </ItemGroup>
@@ -186,6 +192,9 @@
     </Filter>
     <Filter Include="tests\MultipatchTests">
       <UniqueIdentifier>{27dac623-63d0-461e-a4b9-f4bb0142fe04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\UnstructuredSplines">
+      <UniqueIdentifier>{8557aa36-bf64-45b5-a989-e15e70c7f599}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
-#include <vector>
 #pragma once
 
+#include <vector>
 #include "splineFunctions.h"
 #include"point.h"
 namespace knotInsertion {

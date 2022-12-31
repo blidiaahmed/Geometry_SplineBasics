@@ -1,6 +1,6 @@
 #include "pch.h"
-#include<cmath>
-#include"Example.h"
+#include <cmath>
+#include "Example.h"
 #include "MultiPatch.h"
 #include "HalfeEdge.h"
 #include "Multipatch_Helper.h"
@@ -19,6 +19,24 @@ multipatch::multipatch(HalfEdgeMesh & hem)
 	}	
 }
 
+point multipatch::EvaluateMultipatch_FaceBased(int face//face index
+	, vector<float> FaceReferenced_Params)
+{
+	return Splines[face - 1].Evaluate(FaceReferenced_Params);
+	
+}
+
+point multipatch::EvaluateMultipatch_EdgeBased(int HalfeEdgeIndex, vector<float> EdgeReferenced_Param)
+{
+
+	int faceIndex = HalfEdge_Mesh.HalfeEdges[HalfeEdgeIndex - 1].face;
+	int HEdgeIndexInFace= HalfEdge_Mesh.HEdgeIndexInFace(HalfeEdgeIndex);
+	vector <float> x = CoordinateChange_PatchParameter(EdgeReferenced_Param, HEdgeIndexInFace);
+	return Splines[faceIndex - 1].Evaluate(x);
+}
+
+
+
 int multipatch::previousFaces_CtrlPtsCounter(int face)
 {
 	int previousFaces_CtrlPtsCounter = 0;
@@ -30,6 +48,7 @@ int multipatch::previousFaces_CtrlPtsCounter(int face)
 	}
 	return previousFaces_CtrlPtsCounter;
 }
+
 
 
 void multipatch::CreateG0Basis()
