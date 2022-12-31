@@ -45,6 +45,7 @@ int multipatch::previousFaces_CtrlPtsCounter(int face)
 		int CtrPtNb_PerOneFace = Splines[faceIndex - 1].BS.controlGridShape[0] *
 			Splines[faceIndex - 1].BS.controlGridShape[1];
 		previousFaces_CtrlPtsCounter += CtrPtNb_PerOneFace;
+
 	}
 	return previousFaces_CtrlPtsCounter;
 }
@@ -53,6 +54,7 @@ int multipatch::previousFaces_CtrlPtsCounter(int face)
 
 void multipatch::CreateG0Basis()
 {
+
 	
 	for (Face& f : HalfEdge_Mesh.faces)
 	{
