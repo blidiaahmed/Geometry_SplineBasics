@@ -11,7 +11,9 @@ public:
 	vector<spline> Splines;
 	vector<vector<float>> ControleVector;
 	vector<SparseMatrix> G0Basis;
+
 	multipatch(HalfEdgeMesh &hem);
+
 	void CreateControleVector();
 
 	point AccessControleVector(int face
@@ -21,7 +23,8 @@ public:
 	point AccessControleVector(HEdge NxtHedge, int iIndex, int jIndex);
 
 	void CreateG0Basis();
-
+	point EvaluateMultipatch_FaceBased(int face, vector <float> x);
+	point EvaluateMultipatch_EdgeBased(int face_MainHEdge_Index, vector<float> param);
 	int previousFaces_CtrlPtsCounter(int face);
 	void AddQuadFaceControlePoints(Face& f);
 	void AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace);

@@ -132,7 +132,7 @@ TEST(HalfEdge, AltitudeExample)
 	string str = "models/CarteAltitude.bmp";
 	
 	// The Following is a time consuming part
-	// 	 You can execute it whene needed
+	// You can execute it whene needed
 	//PngToPointCloud(str, Om);
 	//WriteOBJ("models/test.obj", Om);
 	//system("meshlab models/test.obj");

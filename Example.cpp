@@ -20,16 +20,22 @@ void PngToPointCloud(string str, OBJMesh& Om)
 	//LOOP OVER THE PIXELS
 	int h = image.height();
 	int w = image.width();
+	float maxi = 0;
 	for (int i = 0;i < w;i++)
 		for (int j = 0;j < h;j++)
 		{
 			float pixvalR = image(i, j, 0, 0); // read red val at coord 10,10
+			maxi = max(maxi, pixvalR);
 			float pixvalG = image(i, j, 0, 1); // read green val at coord 10,10
+			maxi = max(maxi, pixvalG);
 			float pixvalB = image(i, j, 0, 2); // read blue val at coord 10,10
+			maxi = max(maxi, pixvalB);
 			 //cout << pixvalR << " " << pixvalG << " " << pixvalB << endl;
-			Om.points.push_back(point({ (float)i * 5,(float)j * 5,-pixvalR - pixvalG //+ (pixvalB-300)
+			Om.points.push_back(point({ (float)i*3 /(w-1)-1,(float)j*3 / (h-1)-1,-pixvalR - pixvalG //+ (pixvalB-300)
 				}));
 		}
+	for (point& pt : Om.points)
+		pt.X[2] /= 6*maxi;
 }
 
 void Example_SplineMesh(OBJMesh& Om) {
