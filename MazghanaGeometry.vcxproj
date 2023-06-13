@@ -41,6 +41,7 @@
     <ClInclude Include="functionApproximation.h" />
     <ClInclude Include="ImproveSparseMatrices.h" />
     <ClInclude Include="Multipatch_Helper.h" />
+    <ClInclude Include="PositionSharingSystem_Tanks.h" />
     <ClInclude Include="ReOrientMesh.h" />
     <ClInclude Include="sparseMatrix.h" />
     <ClInclude Include="SymbolicComputations.h" />
@@ -61,8 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allTests.cpp" />
+    <ClCompile Include="AltitudeExample.cpp" />
     <ClCompile Include="BSpline.cpp" />
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="TestC0BasisConstructio.cpp" />
     <ClCompile Include="HalfeEdge.cpp" />
     <ClCompile Include="knotInsertion_Splines.cpp" />
     <ClCompile Include="Maths.cpp" />
@@ -78,6 +81,7 @@
     </ClCompile>
     <ClCompile Include="point.cpp" />
     <ClCompile Include="ReadObj.cpp" />
+    <ClCompile Include="TestC0BasisOnFunctionApproximations.cpp" />
     <ClCompile Include="TestEvaluateMultipatch.cpp" />
     <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp" />
     <ClCompile Include="TestMultipatch_Helpers.cpp" />

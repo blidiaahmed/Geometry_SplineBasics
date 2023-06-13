@@ -24,7 +24,7 @@ public:
 class HEdge
 {
 public:
-	int twin = -1;// null if boundary edge
+	int twin = -1;// stay -1 if boundary edge
 	int next = -1;
 	int vertex = -1;
 	int face = -1;
