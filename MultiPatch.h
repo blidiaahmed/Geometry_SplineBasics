@@ -9,22 +9,46 @@ class multipatch
 public:
 	HalfEdgeMesh HalfEdge_Mesh;
 	vector<spline> Splines;
+	//control vect 3 lines and each is coordinate
 	vector<vector<float>> ControleVector;
-	vector<SparseMatrix> G0Basis;
+	//Sparese matrix has, in each line, the control vector of a basis element 
+	SparseMatrix G0Basis;
+
 
 	multipatch(HalfEdgeMesh &hem);
 
+	void RebuildSplinesFromControlVector();
+	void BasisToControlVector();
 	void CreateControleVector();
 
-	point AccessControleVector(int face
+	/**
+	 * ControlVectorIndex
+	 *
+	 * return the index in the ControlVector corresponding to i,j and face.
+	 *
+	 * @param i,j,f indexes
+	 * @return theindex of the function
+	 */
+	int ControlVectorIndex(int faceNumber, int iIndex, int jIndex);
+	void  HalfEdgeBasedIndex_To_FaceBasedIndex(HEdge HEdg, int iIndex, int jIndex,
+		int FaceNumber,int & iIndex_face, int & jIndex_face);
+	int multipatch::ComputeNextTwinHEdgeIndex(HEdge he);
+
+	void CreatInternalG0BasisElements();
+	void CreatEdgeG0BasisElements();
+	vector<int> ComputeHEdgesIndexesList_ArroundAVertex(Vertex vtx);
+	void CreatVertexG0BasisElements();
+	void CreateG0Basis();
+	
+	point AccessControleVector(HEdge HEdg, int iIndex, int jIndex);
+	point AccessControleVector(int faceNumber
 		, int iIndex//start from zero
 		, int jIndex//same
 	);
-	point AccessControleVector(HEdge NxtHedge, int iIndex, int jIndex);
 
-	void CreateG0Basis();
 	point EvaluateMultipatch_FaceBased(int face, vector <float> x);
 	point EvaluateMultipatch_EdgeBased(int face_MainHEdge_Index, vector<float> param);
+
 	int previousFaces_CtrlPtsCounter(int face);
 	void AddQuadFaceControlePoints(Face& f);
 	void AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace);

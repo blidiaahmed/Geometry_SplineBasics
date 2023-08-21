@@ -51,50 +51,166 @@ int multipatch::previousFaces_CtrlPtsCounter(int face)
 }
 
 
-
-void multipatch::CreateG0Basis()
+void multipatch::CreatInternalG0BasisElements()
 {
 
-	
 	for (Face& f : HalfEdge_Mesh.faces)
 	{
-		//internal coefficients
-		
-		
 		HEdge& he = HalfEdge_Mesh.HalfeEdges[f.HEdge - 1];
 		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
 		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
 
-		for (int i =0; i< EdgeAxeControlePointsNumber;i++)
-			for (int j = 0;j< OtherAxeControlePointsNumber;j++)
+		for (int i = 1; i < EdgeAxeControlePointsNumber-1;i++)
+			for (int j = 1;j < OtherAxeControlePointsNumber-1;j++)
 			{
-				G0Basis.push_back(SparseMatrix());
-				G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1.));
+				int faceIndex=HalfEdge_Mesh.HalfeEdges[f.HEdge - 1].face;
+
+				int CtrVectIdx=this->ControlVectorIndex(faceIndex,i, j );
+				G0Basis.shape1++;
+				MatrixCoefficient NewMatrixCoefficient(G0Basis.shape1-1, CtrVectIdx,1.);
+				G0Basis.shape2 = max(G0Basis.shape2, CtrVectIdx + 1);
+				G0Basis.matrixCoefficients.push_back(NewMatrixCoefficient);
+			}
+	}
+}
+
+void multipatch::CreatEdgeG0BasisElements()
+{	
+	int numberOfEdges = HalfEdge_Mesh.HalfeEdges.size();
+
+	//flag edge that we passed through
+	vector<bool> ifHedgeIsNotUsed(numberOfEdges,1);
+
+	for (HEdge he : HalfEdge_Mesh.HalfeEdges )
+	{
+		int oppositEdgeIndex = he.twin-1;
+		
+		if (oppositEdgeIndex ==-2 || ifHedgeIsNotUsed[oppositEdgeIndex])
+		{
+			
+			if (oppositEdgeIndex != -2)
+			{
+				// if not boundary: flag it
+				int currentEdgeIndex = HalfEdge_Mesh.HalfeEdges[oppositEdgeIndex].twin - 1;
+				ifHedgeIsNotUsed[oppositEdgeIndex] = 0;
+				//need not to flag this hedge if it is a boundary edge, 
+				ifHedgeIsNotUsed[currentEdgeIndex] = 0;
 			}
 
-		
-	}
-	//edge coefficients
-	vector<bool> i_HalfEdge_used(HalfEdge_Mesh.HalfeEdges.size());
-	int HEdgeCounter = 0;
-	for (HEdge he : HalfEdge_Mesh.HalfeEdges)
-	{
-		int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
-		int OtherAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[0];
-		HEdge NextEdge = HalfEdge_Mesh.HalfeEdges[he.next];
-		HEdge NextNextEdge = HalfEdge_Mesh.HalfeEdges[NextEdge.next];
-		HEdge PreviousEdge = HalfEdge_Mesh.HalfeEdges[NextNextEdge.next];
-		Face fc = HalfEdge_Mesh.faces[he.face];
-		
-		if (fc.HEdge == HEdgeCounter)
-		{
-			int i = 0;
-			int j = 0;
-			G0Basis.push_back(SparseMatrix());
-			G0Basis.back().cfM.push_back(MatrixCoefficient(i, j, 1));
+			int EdgeAxeControlePointsNumber = Splines[he.face - 1].BS.controlGridShape[1];
+			for (int i = 1;i < EdgeAxeControlePointsNumber - 1;i++)
+			{
+				int faceNumber = he.face;
+				int iIndex_face = 0;
+				int jIndex_face = 0;
+				HalfEdgeBasedIndex_To_FaceBasedIndex(he, i, 0, faceNumber, iIndex_face, jIndex_face);
+				int CtrVectIdx = this->ControlVectorIndex(faceNumber, iIndex_face, jIndex_face);
+				int TwinEdge_CtrVectIdx = 0;
+				if (oppositEdgeIndex != -2)
+				{
+					HEdge TwinHe = this->HalfEdge_Mesh.HalfeEdges[oppositEdgeIndex];
+					int TwinfaceNumber = TwinHe.face;
+					HalfEdgeBasedIndex_To_FaceBasedIndex(TwinHe, EdgeAxeControlePointsNumber-1-i, 0,
+						TwinfaceNumber, iIndex_face, jIndex_face);
+					 TwinEdge_CtrVectIdx = this->ControlVectorIndex(TwinfaceNumber,iIndex_face, jIndex_face);
+				}
+
+				G0Basis.shape1++;
+				MatrixCoefficient NewMatrixCoefficient(G0Basis.shape1 - 1, CtrVectIdx, 1.);
+				G0Basis.shape2 = max(G0Basis.shape2, CtrVectIdx + 1);
+				G0Basis.matrixCoefficients.push_back(NewMatrixCoefficient);
+				if (oppositEdgeIndex != -2)
+				{
+					NewMatrixCoefficient = MatrixCoefficient(G0Basis.shape1 - 1, TwinEdge_CtrVectIdx, 1.);
+					G0Basis.matrixCoefficients.push_back(NewMatrixCoefficient);
+				}
+			}
 		}
-		HEdgeCounter++;
 	}
+}
+
+vector<int> multipatch::ComputeHEdgesIndexesList_ArroundAVertex(Vertex vtx)
+{
+	vector<int> HEIndexVect(0);
+	int InitialHEdgeNumber = vtx.HalfEdge;
+
+	HEdge InitialHEdge = HalfEdge_Mesh.HalfeEdges[InitialHEdgeNumber - 1];
+	HEIndexVect.push_back(InitialHEdgeNumber-1);
+	
+	Face fc = HalfEdge_Mesh.faces[InitialHEdge.face - 1];
+	int nextEdgeIndex = HalfEdge_Mesh.
+		Privious_Hedge_finder(&InitialHEdge, &fc)->twin - 1;
+		
+	HEdge CurrentHEdge;
+	
+	for (HEdge previousEdge = InitialHEdge;
+		nextEdgeIndex >=0 &&
+		nextEdgeIndex != InitialHEdgeNumber-1;
+		)
+	{
+		HEIndexVect.push_back(nextEdgeIndex);
+		CurrentHEdge = this->HalfEdge_Mesh.HalfeEdges[nextEdgeIndex];
+		fc=HalfEdge_Mesh.faces[CurrentHEdge.face - 1];
+		nextEdgeIndex = HalfEdge_Mesh.
+		Privious_Hedge_finder(&CurrentHEdge, &fc)->twin - 1;
+		previousEdge = CurrentHEdge;
+	}
+	// If the vertex is in the boundary, principle hedge may 
+	// have HE on the right. We compute them next
+	if (nextEdgeIndex < 0 && InitialHEdge.twin>0)
+	{
+		int nextEdgeIndex_FromRight = this->HalfEdge_Mesh.
+			HalfeEdges[InitialHEdge.twin - 1].next - 1;
+		CurrentHEdge = InitialHEdge;
+		for (HEdge previousEdge = InitialHEdge;
+			CurrentHEdge.twin >= 0;
+			)
+		{
+		CurrentHEdge = this->
+			HalfEdge_Mesh.HalfeEdges[nextEdgeIndex_FromRight];
+		HEIndexVect.insert(HEIndexVect.cbegin(), nextEdgeIndex_FromRight);
+
+		}
+	}
+		
+	return HEIndexVect;
+}
+
+void multipatch::CreatVertexG0BasisElements()
+{
+	for (Vertex vtx : HalfEdge_Mesh.vertices)
+	{
+		vector<int> HEdgeIndexVect=ComputeHEdgesIndexesList_ArroundAVertex(vtx);
+		G0Basis.shape1++;
+		for (int HEdgeIndex : HEdgeIndexVect)
+		{
+			int iIndex_face;
+			int jIndex_face;
+			HEdge CurrentHEdge = HalfEdge_Mesh.HalfeEdges[HEdgeIndex];
+			HalfEdgeBasedIndex_To_FaceBasedIndex(CurrentHEdge, 0,0,CurrentHEdge.face,
+				iIndex_face, jIndex_face);
+			int CtrVectIdx = this->ControlVectorIndex(CurrentHEdge.face,
+				iIndex_face, jIndex_face);
+			MatrixCoefficient NewMatrixCoefficient(G0Basis.shape1 - 1, CtrVectIdx, 1.);
+			G0Basis.shape2 = max(G0Basis.shape2, CtrVectIdx + 1);
+			G0Basis.matrixCoefficients.push_back(NewMatrixCoefficient);
+		}
+
+	}
+
+}
+
+
+void multipatch::CreateG0Basis()
+{
+	//Shape 1 will  be the number of basis elements
+	//Shape 2 will be the same as the size of the contol vector
+	G0Basis.shape2 = 0;
+	G0Basis.shape1 = 0;
+	CreatInternalG0BasisElements();
+	
+	CreatEdgeG0BasisElements();
+	CreatVertexG0BasisElements();
 }
 
 
@@ -102,9 +218,9 @@ void Interpolation_QuadPatch(int face, HalfEdgeMesh hem, spline& sp)
 
 {
 	Face* fc= &hem.faces[face - 1];
-	 HEdge he=hem.HalfeEdges[ fc->HEdge-1];
-	 vector<int> pointsIndeces;
-	 for (int i = 0; i < 4;i++)
+	HEdge he=hem.HalfeEdges[ fc->HEdge-1];
+	vector<int> pointsIndeces;
+	for (int i = 0; i < 4;i++)
 	 {
 		 pointsIndeces.push_back(he.vertex);
 		 he = hem.HalfeEdges[he.next-1];

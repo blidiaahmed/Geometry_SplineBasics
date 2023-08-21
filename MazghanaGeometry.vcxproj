@@ -43,6 +43,7 @@
     <ClInclude Include="ImproveSparseMatrices.h" />
 
     <ClInclude Include="Multipatch_Helper.h" />
+    <ClInclude Include="PositionSharingSystem_Tanks.h" />
     <ClInclude Include="ReOrientMesh.h" />
     <ClInclude Include="sparseMatrix.h" />
 
@@ -65,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allTests.cpp" />
+    <ClCompile Include="AltitudeExample.cpp" />
     <ClCompile Include="BSpline.cpp" />
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="TestC0BasisConstructio.cpp" />
     <ClCompile Include="HalfeEdge.cpp" />
     <ClCompile Include="knotInsertion_Splines.cpp" />
     <ClCompile Include="Maths.cpp" />
@@ -82,6 +85,7 @@
     </ClCompile>
     <ClCompile Include="point.cpp" />
     <ClCompile Include="ReadObj.cpp" />
+    <ClCompile Include="TestC0BasisOnFunctionApproximations.cpp" />
     <ClCompile Include="TestEvaluateMultipatch.cpp" />
     <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp" />
     <ClCompile Include="TestMultipatch_Helpers.cpp" />
@@ -117,6 +121,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);C:\Users\Utilisateur\source\repos\MazghanaGeometry\Matrices\eigen-3.4.0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,6 +137,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);C:\Users\Utilisateur\source\repos\MazghanaGeometry\Matrices\eigen-3.4.0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

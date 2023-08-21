@@ -1,10 +1,11 @@
 #include "pch.h"
+#include "png/CImg.h"
+
 #include"splineFunctions.h"
 #include"OBJMesh.h"
 #include"WriteObj.h"
 #include "HalfeEdge.h"
 #include"MeshConvert.h"
-#include "png/CImg.h"
 #include"ReadObj.h"
 #include"Example.h"
 using namespace cimg_library;
@@ -124,7 +125,7 @@ TEST(HalfEdge, FormingPointCloud)
 	//system("meshlab models/test2.obj models/test3.obj");
 }
 
-TEST(HalfEdge, AltitudeExample)
+TEST(HalfEdge, ReadPNG_PointCloud)
 {
 
 	OBJMesh Om;

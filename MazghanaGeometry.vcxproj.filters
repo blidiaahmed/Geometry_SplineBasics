@@ -26,12 +26,6 @@
     <ClCompile Include="TestWriteOBJ.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="TestHalfEdge.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
-    <ClCompile Include="TestObjRead.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="MeshConvert.cpp">
       <Filter>sources</Filter>
     </ClCompile>
@@ -50,12 +44,14 @@
     <ClCompile Include="knotInsertion_Splines.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+
     <ClCompile Include="TestKnotInsertion_splines.cpp">
       <Filter>tests</Filter>
     </ClCompile>
     <ClCompile Include="TestKnotInsertion_splines2.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+
 
     <ClCompile Include="TestSparseMatrix.cpp">
       <Filter>tests</Filter>
@@ -86,25 +82,35 @@
       <Filter>sources\UnstructuredSplines</Filter>
     </ClCompile>
 
+    <ClCompile Include="AltitudeExample.cpp">
+      <Filter>tests\TestExample</Filter>
+    </ClCompile>
+    <ClCompile Include="TestKnotInsertion_splines.cpp">
+      <Filter>tests\TestSplines</Filter>
+    </ClCompile>
+    <ClCompile Include="TestKnotInsertion_splines2.cpp">
+      <Filter>tests\TestSplines</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHalfEdge.cpp">
+      <Filter>tests\TestMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TestObjRead.cpp">
+      <Filter>tests\TestMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TestC0BasisConstructio.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestC0BasisOnFunctionApproximations.cpp">
+      <Filter>tests\MultipatchTests</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="TestBSpline.cpp">
-      <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="TestSplineFunction.cpp">
-      <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="TestConvert.cpp">
-      <Filter>tests</Filter>
-    </ClInclude>
     <ClInclude Include="Example.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="ApproximateCatmullClark.h">
-      <Filter>Todo</Filter>
-    </ClInclude>
-    <ClInclude Include="functionApproximation.h">
       <Filter>Todo</Filter>
     </ClInclude>
     <ClInclude Include="ReadObj.h">
@@ -173,6 +179,21 @@
     <ClInclude Include="ImproveSparseMatrices.h">
       <Filter>Todo</Filter>
     </ClInclude>
+    <ClInclude Include="TestBSpline.cpp">
+      <Filter>tests\TestSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSplineFunction.cpp">
+      <Filter>tests\TestSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="TestConvert.cpp">
+      <Filter>tests\TestMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionSharingSystem_Tanks.h">
+      <Filter>Todo</Filter>
+    </ClInclude>
+    <ClInclude Include="functionApproximation.h">
+      <Filter>headers\Examples</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sources">
@@ -210,6 +231,18 @@
     </Filter>
     <Filter Include="sources\UnstructuredSplines">
       <UniqueIdentifier>{8557aa36-bf64-45b5-a989-e15e70c7f599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\TestExample">
+      <UniqueIdentifier>{1641529e-3523-457a-b811-df0cf251464b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\TestSplines">
+      <UniqueIdentifier>{eb15e48a-9fbd-4aff-bf07-7bc9e108ce81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\TestMesh">
+      <UniqueIdentifier>{3bb0e9d5-d95c-44a7-954d-0e2c655cdafa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\Examples">
+      <UniqueIdentifier>{faaa6377-c1d0-4fc7-960d-b6b638372197}</UniqueIdentifier>
     </Filter>
 
   </ItemGroup>
