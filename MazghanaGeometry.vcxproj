@@ -39,12 +39,16 @@
     <ClInclude Include="degreeElevtion.h" />
     <ClInclude Include="Example.h" />
     <ClInclude Include="functionApproximation.h" />
+
     <ClInclude Include="ImproveSparseMatrices.h" />
+
     <ClInclude Include="Multipatch_Helper.h" />
     <ClInclude Include="PositionSharingSystem_Tanks.h" />
     <ClInclude Include="ReOrientMesh.h" />
     <ClInclude Include="sparseMatrix.h" />
+
     <ClInclude Include="SymbolicComputations.h" />
+
     <ClInclude Include="knotInsertion_Splines.h" />
     <ClInclude Include="MultiPatch.h" />
     <ClInclude Include="MeshConvert.h" />
@@ -91,7 +95,9 @@
     <ClCompile Include="TestKnotInsertion_splines2.cpp" />
     <ClCompile Include="TestMaths.cpp" />
     <ClCompile Include="TestMultipatch.cpp" />
+
     <ClCompile Include="TestControleVector.cpp" />
+
     <ClCompile Include="TestObjRead.cpp" />
     <ClCompile Include="TestPoint.cpp" />
     <ClCompile Include="TestWriteOBJ.cpp" />
