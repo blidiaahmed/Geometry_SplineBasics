@@ -36,9 +36,14 @@ point multipatch::AccessControleVector(int faceNumber, int iIndex, int jIndex)
 {
 	
 	int ControlVectorIndex= this->ControlVectorIndex(faceNumber, iIndex, jIndex);
-	point pt = point({ ControleVector[0][ControlVectorIndex],
-		ControleVector[1][ControlVectorIndex],
-		ControleVector[2][ControlVectorIndex] });
+	
+
+	point pt = point({ ControleVector[0][ControlVectorIndex],ControleVector[1][ControlVectorIndex] });
+	for (int Index = 2;Index < ControleVector.size();Index++)
+	{
+		pt.X.push_back(ControleVector[Index][ControlVectorIndex]);
+	}
+	pt.dimension = ControleVector.size();
 	return pt;
 
 }
@@ -93,7 +98,7 @@ void multipatch::BasisToControlVector()
 	int ControlVectorSize = ControleVector[0].size();
 	this->ControleVector = vector<vector<float>>(0);
 
-	for (int k = 0;k< this->G0Basis.shape2;k++)
+	for (int k = 0;k< this->G0Basis.shape1;k++)
 	{
 		vector<float> V(ControlVectorSize, 0.);
 		ControleVector.push_back(V);

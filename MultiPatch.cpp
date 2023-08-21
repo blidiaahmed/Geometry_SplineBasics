@@ -197,8 +197,6 @@ void multipatch::CreatVertexG0BasisElements()
 	}
 
 }
-
-
 void multipatch::CreateG0Basis()
 {
 	//Shape 1 will  be the number of basis elements
@@ -206,9 +204,13 @@ void multipatch::CreateG0Basis()
 	G0Basis.shape2 = 0;
 	G0Basis.shape1 = 0;
 	CreatInternalG0BasisElements();
-	
+
 	CreatEdgeG0BasisElements();
 	CreatVertexG0BasisElements();
+}
+
+void multipatch::CreateG1Basis()
+{
 }
 
 

@@ -3,7 +3,8 @@ read "src/symbolicTensorSpline.mpl";
 with(Student[LinearAlgebra]);
 
 ValuesAtEdge := proc(axe, Valence, ControlePoints, knotsLists, degrees, ControleGridShape) 
-  local TotaleFunction, ValuesAtEdge, i; TotaleFunction := SymbolicTensorSpline(u, v, ControlePoints, knotsLists, degrees); 
+  local TotaleFunction, ValuesAtEdge, i;
+  TotaleFunction := SymbolicTensorSpline(u, v, ControlePoints, knotsLists, degrees); 
   if axes = 1 then ValuesAtEdge := Vector([seq(TotaleFunction[i][1], i = 1 .. nops(TotaleFunction))]); 
   else ValuesAtEdge := Vector([seq(TotaleFunction[1][i], i = 1 .. Student:-LinearAlgebra:-Dimension(TotaleFunction[1]))]);
   end if;
