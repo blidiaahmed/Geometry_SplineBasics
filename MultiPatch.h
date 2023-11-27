@@ -39,6 +39,7 @@ public:
 	vector<int> ComputeHEdgesIndexesList_ArroundAVertex(Vertex vtx);
 	void CreatVertexG0BasisElements();
 	void CreateG0Basis();
+	void CreateG1Basis();
 	
 	point AccessControleVector(HEdge HEdg, int iIndex, int jIndex);
 	point AccessControleVector(int faceNumber

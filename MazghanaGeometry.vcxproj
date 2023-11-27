@@ -86,6 +86,7 @@
     <ClCompile Include="point.cpp" />
     <ClCompile Include="ReadObj.cpp" />
     <ClCompile Include="TestC0BasisOnFunctionApproximations.cpp" />
+    <ClCompile Include="TestCreatG1Space.cpp" />
     <ClCompile Include="TestEvaluateMultipatch.cpp" />
     <ClCompile Include="TestMultipatch_HEdgeBased_ControlVectorAccess.cpp" />
     <ClCompile Include="TestMultipatch_Helpers.cpp" />
