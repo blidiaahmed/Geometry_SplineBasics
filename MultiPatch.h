@@ -55,6 +55,7 @@ public:
 	void AddAQuarterFaceOfControlePoints(HEdge& he, int HalfEdgeIndexInFace);
 	void ComputeQuarterLoopCounters(int& EdgeAxeLoopCounter,int& OtherAxeLoopCounter, 
 		HEdge& he, int HalfEdgeIndexInFace);
+
 	void AddCentralControlePoint(HEdge & he, int EdgeAxeControlePointsNumber, int OtherAxeControlePointsNumber);
 };
 

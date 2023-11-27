@@ -1,10 +1,18 @@
 #include"pch.h"
+
 #include"Example.h"
+
 #include"knotInsertion_Splines.h"
 #include"splineFunctions.h"
 
 
+
 TEST(TestkontInsertion_spline, UnchangebilityOfTheCurve)
+
+
+TEST(TestkontInsertion_spline, controlPointsNumber)
+
+
 {
 	spline sp(3);
 	sp.tensor1 = vector<point>({ point({0,0,0}),point({1,0,0}),point({0,1,0}),point({1,1,1}) });
@@ -24,6 +32,7 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheCurve)
 		error += pt.getNorm();
 	}
 	ASSERT_NEAR(error, 0,0.001);
+
 }
 
 TEST(TestkontInsertion_spline, UnchangebilityOfTheSurface_AxeOne)
@@ -103,3 +112,4 @@ TEST(TestkontInsertion_spline, UnchangebilityOfTheSurface_AxeTwo)
 			counter++;
 		}
 }
+
