@@ -104,6 +104,7 @@
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
 
+    
     <ClCompile Include="TestCreatG1Space.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
