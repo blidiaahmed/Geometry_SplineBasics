@@ -606,7 +606,7 @@ TEST(Multipatch_AccessTheControleVector, BinarySearchForMistake_DegreeElevation)
 		for (int NumberOfInsertedKnotsSecondAxe = 0;NumberOfInsertedKnotsSecondAxe < 5;NumberOfInsertedKnotsSecondAxe++)
 		{
 
-			multipatch mltp(ConvertObjToHEdge(Om));
+			multipatch mltp(ConvertObjToH-Edge(Om));
 			AllKnotsInsertion(NumberOfInsertedKnots_FirstAxe, NumberOfInsertedKnotsSecondAxe, mltp);
 
 			mltp.CreateControleVector();

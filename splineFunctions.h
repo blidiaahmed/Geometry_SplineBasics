@@ -35,6 +35,7 @@ public:
 	{
 		tensor1 = vector<point>();
 	};
+
 	//knot insertion
 	void knotInsert(float knotToInsert, int axe);
 

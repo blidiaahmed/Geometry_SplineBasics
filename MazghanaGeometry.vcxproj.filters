@@ -44,6 +44,15 @@
     <ClCompile Include="knotInsertion_Splines.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+
+    <ClCompile Include="TestKnotInsertion_splines.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestKnotInsertion_splines2.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+
+
     <ClCompile Include="TestSparseMatrix.cpp">
       <Filter>tests</Filter>
     </ClCompile>
@@ -59,6 +68,7 @@
     <ClCompile Include="TestControleVector.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
+
     <ClCompile Include="TestEvaluateMultipatch.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
@@ -71,6 +81,7 @@
     <ClCompile Include="MultiPatch.cpp">
       <Filter>sources\UnstructuredSplines</Filter>
     </ClCompile>
+
     <ClCompile Include="AltitudeExample.cpp">
       <Filter>tests\TestExample</Filter>
     </ClCompile>
@@ -92,9 +103,12 @@
     <ClCompile Include="TestC0BasisOnFunctionApproximations.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
+
+    
     <ClCompile Include="TestCreatG1Space.cpp">
       <Filter>tests\MultipatchTests</Filter>
     </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -133,9 +147,21 @@
     </ClInclude>
     <ClInclude Include="knotInsertion_Splines.h">
       <Filter>headers\Splines</Filter>
+
     </ClInclude>
     <ClInclude Include="SymbolicComputations.h">
       <Filter>Todo</Filter>
+
+    </ClInclude>
+    <ClInclude Include="SymbolicComputations.h">
+      <Filter>Todo</Filter>
+
+    </ClInclude>
+    <ClInclude Include="unstructuredSplines.h">
+      <Filter>headers\UnstructuredSplines</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPatch.h">
+      <Filter>headers\UnstructuredSplines</Filter>
     </ClInclude>
     <ClInclude Include="MultiPatch.h">
       <Filter>headers\UnstructuredSplines</Filter>
@@ -223,6 +249,7 @@
     <Filter Include="headers\Examples">
       <UniqueIdentifier>{faaa6377-c1d0-4fc7-960d-b6b638372197}</UniqueIdentifier>
     </Filter>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
